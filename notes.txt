@@ -1,0 +1,8 @@
+<Heading as="h2" fontSize="2xl" fontWeight="500">
+
+// TODO
+
+1) add transition to Popover
+2) add transition when item dissapears from the cart
+3) 
+

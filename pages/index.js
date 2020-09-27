@@ -1,65 +1,75 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Menu from "../components/Menu";
+import Header from "../components/Header";
+import Banner from "../components/Banner";
+import { sections } from "../assets/data/data";
 
-export default function Home() {
+export default function Home({ products }) {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+    <>
+      <Header />
+      <Banner />
+      <Menu sections={sections} />
+    </>
+  );
 }
+
+// menu -> submenus
+// sections
+
+// export const getStaticProps = async () => {
+//   const BASE_URL = "https://api.trello.com/1";
+//   const BOARD_ID = "xjhdOnDx";
+//   const TRELLO_KEY = "930e28f51398656200efdbdc9d0ad0cb";
+//   const TRELLO_TOKEN =
+//     "67175ffe747f91e5a650b21c13a32db52e910a76240164423533944e97af72b8";
+//   const PRICE_CUSTOM_FIELD_ID = "5f33f8266e56c349848464f0";
+
+//   let lists = await fetch(
+//     `${BASE_URL}/boards/${BOARD_ID}/lists?fields=name&key=${TRELLO_KEY}&token=${TRELLO_TOKEN}`,
+//     {
+//       method: "GET",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//     }
+//   );
+//   lists = await lists.json();
+
+//   let temp = lists.map(async (list, index) => {
+//     let items = await fetch(
+//       `${BASE_URL}/lists/${list.id}/cards?fields=name&key=${TRELLO_KEY}&token=${TRELLO_TOKEN}&attachments=cover&attachment_fields=url&customFieldItems=true`,
+//       {
+//         method: "GET",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//       }
+//     );
+//     items = await items.json();
+
+//     items = items.map(({ id, name, attachments, customFieldItems }) => {
+//       const priceField = customFieldItems.find(
+//         (field) => field.idCustomField === PRICE_CUSTOM_FIELD_ID
+//       );
+//       const price = priceField?.value?.number || 0;
+
+//       return {
+//         id,
+//         name,
+//         price,
+//         image: attachments[0]?.url || "/placeholder.png",
+//       };
+//     });
+
+//     list.items = items;
+//     return list;
+//   });
+
+//   temp = await Promise.all(temp);
+
+//   return {
+//     props: {
+//       products: lists,
+//     },
+//   };
+// };
