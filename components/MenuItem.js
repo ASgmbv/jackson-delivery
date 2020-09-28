@@ -17,9 +17,11 @@ import {
   FormLabel,
   Select,
   Textarea,
+  useToast,
 } from "@chakra-ui/core";
 import { useForm } from "react-hook-form";
 import useCartStore from "../utils/hooks/useCartStore";
+import Dish from "../assets/icons/Dish";
 
 const addItemSelector = (state) => state.addItem;
 // const itemsSelector = (state) => state.items;
@@ -33,14 +35,20 @@ const MenuItem = ({
 }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { handleSubmit, errors, register } = useForm();
-
+  const toast = useToast();
   const addItem = useCartStore(addItemSelector);
-  // const items = useCartStore(itemsSelector)
 
   function onSubmit(values) {
     console.log({ values });
     addItem({ title, description, price, image, id, ...values });
     onClose();
+    toast({
+      position: "bottom-right",
+      title: "Item added to cart.",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
   }
 
   return (
@@ -67,6 +75,16 @@ const MenuItem = ({
             left: 0,
             transition: "all 150ms ease-out 0s",
           }}
+          fallback={
+            <Dish
+              fill="#EDEEF2"
+              style={{
+                width: "80%",
+                height: "80%",
+                margin: "auto",
+              }}
+            />
+          }
           _hover={{
             top: "5px",
           }}
