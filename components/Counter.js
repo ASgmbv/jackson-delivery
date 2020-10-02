@@ -25,7 +25,7 @@ const Counter = ({ onDec, onInc, value, ...props }) => {
       >
         -
       </Button>
-      {/* <Input type="text" readOnly value={value} /> */}
+
       <Text w="20px" textAlign="center">
         {value}
       </Text>
