@@ -3,10 +3,14 @@ import Header from "../components/Header";
 import Banner from "../components/Banner";
 import { sections } from "../assets/data/data";
 import { Box } from "@chakra-ui/core";
+import Head from "next/head";
 
 export default function Home({ products }) {
   return (
     <>
+      <Head>
+        <title>Bunnery Restaurant</title>
+      </Head>
       <Header />
       <Banner />
       <Menu sections={sections} />

@@ -86,7 +86,7 @@ const MenuItem = (props) => {
         </Text>
 
         <Button onClick={onOpen} variant="outline" colorScheme="orange">
-          Выбрать
+          Select
         </Button>
 
         <Fade timeout={300} in={isOpen}>

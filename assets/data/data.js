@@ -40,4 +40,25 @@ export const sections = [
       },
     ],
   },
+  {
+    title: "Pies",
+    items: [
+      {
+        title: "Raspberry Pie",
+        description: "",
+        price: 26,
+        image: "/pizza.png",
+        type: "pies-whole",
+        id: 5,
+      },
+      {
+        title: "Strawberry Pie",
+        description: "",
+        price: 26,
+        image: "/pizza.png",
+        type: "pies-whole",
+        id: 5,
+      },
+    ],
+  },
 ];

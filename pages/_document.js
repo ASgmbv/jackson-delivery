@@ -1,6 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ColorModeScript } from "@chakra-ui/core";
-import GoogleFonts from "next-google-fonts";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -21,11 +20,6 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
             rel="stylesheet"
           />
-          {/* <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
-          <meta name="format-detection" content="telephone=no" /> */}
         </Head>
         <body>
           <ColorModeScript initialValue="light" />

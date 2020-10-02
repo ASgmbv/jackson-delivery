@@ -2,7 +2,8 @@
 
 // TODO
 
-1) add transition to Popover
-2) add transition when item dissapears from the cart
-3) 
+mobile screen size
+add cms
+
+
 
