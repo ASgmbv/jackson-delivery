@@ -2,6 +2,7 @@ import Menu from "../components/Menu";
 import Header from "../components/Header";
 import Banner from "../components/Banner";
 import { sections } from "../assets/data/data";
+import { Box } from "@chakra-ui/core";
 
 export default function Home({ products }) {
   return (
@@ -9,6 +10,7 @@ export default function Home({ products }) {
       <Header />
       <Banner />
       <Menu sections={sections} />
+      <Box sx={{ height: "100px" }} />
     </>
   );
 }

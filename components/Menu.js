@@ -1,13 +1,15 @@
-import { Heading, Grid, Flex, Container } from "@chakra-ui/core";
+import { Heading, Grid, Flex, Container, Stack } from "@chakra-ui/core";
 
 import MenuItem from "./MenuItem";
 
 const Menu = ({ sections = [] }) => {
   return (
     <Container maxW="xl" as="section">
-      {sections.map((section, index) => (
-        <SubMenu key={index} section={section} />
-      ))}
+      <Stack spacing="16">
+        {sections.map((section, index) => (
+          <SubMenu key={index} section={section} />
+        ))}
+      </Stack>
     </Container>
   );
 };

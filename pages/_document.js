@@ -28,7 +28,7 @@ class MyDocument extends Document {
           <meta name="format-detection" content="telephone=no" /> */}
         </Head>
         <body>
-          <ColorModeScript initialValue="system" />
+          <ColorModeScript initialValue="light" />
           <Main />
           <NextScript />
         </body>
