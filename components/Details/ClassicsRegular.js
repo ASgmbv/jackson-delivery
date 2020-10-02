@@ -47,9 +47,9 @@ const ClassicsRegular = ({ onClose, ...props }) => {
             Would you like to add any cheese?
           </FormLabel>
           <Select name="cheeseType" ref={register()}>
-            <option>Cheddar cheese</option>
-            <option>Swiss cheese</option>
-            <option>Peperjack cheese</option>
+            <option>Cheddar Cheese</option>
+            <option>Swiss Cheese</option>
+            <option>Peperjack Cheese</option>
           </Select>
         </>
       )}
@@ -60,7 +60,7 @@ const ClassicsRegular = ({ onClose, ...props }) => {
       <Select name="meatType" ref={register()}>
         <option>Bacon</option>
         <option>Sausage</option>
-        <option>Hamstack</option>
+        <option>Ham Steak + $4.95</option>
         <option>Crispy bacon</option>
         <option>Deli ham</option>
         <option>Salmon</option>
@@ -72,11 +72,11 @@ const ClassicsRegular = ({ onClose, ...props }) => {
       </FormLabel>
       <Select name="toastSub" ref={register()}>
         <option>No</option>
-        <option>OSM bread - 0.00$</option>
-        <option>White bread + 1.25$</option>
-        <option>Cinnamon raisin + 1.25$</option>
-        <option>Butter croissant + 1.75$</option>
-        <option>Rustic dye bread + 0.00$</option>
+        <option>OSM Bread - $0.00</option>
+        <option>White Bread + $1.25</option>
+        <option>Cinnamon Raisin + $1.25</option>
+        <option>Butter Croissant + $1.75</option>
+        <option>Rustic Rye Bread + $0.00</option>
       </Select>
 
       <FormLabel htmlFor="note" mt="6">

@@ -68,7 +68,7 @@ const ClassicsSignature = ({ onClose, ...props }) => {
       <Select name="meatType" ref={register()}>
         <option>Bacon</option>
         <option>Sausage</option>
-        <option>Hamstack</option>
+        <option>Ham Steak + $4.95</option>
         <option>Crispy bacon</option>
         <option>Deli ham</option>
         <option>Salmon</option>

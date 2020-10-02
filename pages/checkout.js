@@ -10,6 +10,7 @@ import {
 import useCartStore from "../utils/hooks/useCartStore";
 import Header from "../components/Header";
 import CheckoutItem from "../components/CheckoutItem/index";
+import { calculateExtra } from "../utils/calculateExtra";
 
 const itemsSelector = (state) => state.items;
 
@@ -18,8 +19,11 @@ const Checkout = () => {
 
   const total =
     Math.round(
-      items.reduce((sum, { price, quantity }) => {
-        return sum + price * quantity;
+      items.reduce((sum, item) => {
+        const { price, quantity } = item;
+        const extra = calculateExtra(item);
+
+        return sum + (price + extra) * quantity;
       }, 0) * 100
     ) / 100;
 

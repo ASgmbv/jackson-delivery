@@ -69,11 +69,11 @@ const SteakAndCheese = ({ onClose, ...props }) => {
       </FormLabel>
       <Select name="toastSub" ref={register()}>
         <option>No</option>
-        <option>OSM bread - 0.00$</option>
-        <option>White bread + 1.25$</option>
-        <option>Cinnamon raisin + 1.25$</option>
-        <option>Butter croissant + 1.75$</option>
-        <option>Rustic dye bread + 0.00$</option>
+        <option>OSM Bread - $0.00</option>
+        <option>White Bread + $1.25</option>
+        <option>Cinnamon Raisin + $1.25</option>
+        <option>Butter Croissant + $1.75</option>
+        <option>Rustic Rye Bread + $0.00</option>
       </Select>
 
       <FormLabel htmlFor="note" mt="6">

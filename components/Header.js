@@ -20,8 +20,6 @@ const itemsSelector = (state) => state.items;
 const Header = ({ isWithCart = true }) => {
   const items = useCartStore(itemsSelector);
 
-  console.log({ items });
-
   return (
     <Flex
       as="section"

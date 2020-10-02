@@ -2,6 +2,7 @@ import { Flex, Image, Stack, Text, IconButton } from "@chakra-ui/core";
 import Counter from "../Counter";
 import { CloseIcon } from "@chakra-ui/icons";
 import useCartStore from "../../utils/hooks/useCartStore";
+import { calculateExtra } from "../../utils/calculateExtra";
 
 const removeItemSelector = (state) => state.removeItem;
 const addItemSelector = (state) => state.addItem;
@@ -24,7 +25,8 @@ const ClassicsRegular = (props) => {
     note,
   } = props;
 
-  const totalPrice = Math.round(quantity * price * 100) / 100;
+  const extra = calculateExtra(props);
+  const totalPrice = Math.round(quantity * (price + extra) * 100) / 100;
 
   return (
     <Flex alignItems="center">

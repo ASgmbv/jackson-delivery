@@ -14,6 +14,7 @@ import {
 import useCartStore from "../utils/hooks/useCartStore";
 import { DeleteIcon, SearchIcon, CloseIcon } from "@chakra-ui/icons";
 import Counter from "./Counter";
+import { calculateExtra } from "../utils/calculateExtra";
 
 const removeItemSelector = (state) => state.removeItem;
 const addItemSelector = (state) => state.addItem;
@@ -26,7 +27,8 @@ const CartItem = ({ data }) => {
   const items = useCartStore(itemsSelector);
   const clearItem = useCartStore(clearItemSelector);
 
-  const totalPrice = Math.round(data.quantity * data.price * 100) / 100;
+  const totalPrice =
+    Math.round(data.quantity * (data.price + calculateExtra(data)) * 100) / 100;
 
   return (
     <Flex sx={{ flexDirection: "column" }}>

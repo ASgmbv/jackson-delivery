@@ -3,6 +3,7 @@ import useCartStore from "../utils/hooks/useCartStore";
 import CartItem from "./CartItem";
 import Link from "next/link";
 import { SearchIcon, DeleteIcon } from "@chakra-ui/icons";
+import { calculateExtra } from "../utils/calculateExtra";
 
 const itemsSelector = (state) => state.items;
 
@@ -10,8 +11,10 @@ const Cart = (params) => {
   const items = useCartStore(itemsSelector);
 
   // wrap in useCallback for performance
-  const temp = items.reduce((sum, { quantity, price }) => {
-    return sum + quantity * price;
+  const temp = items.reduce((sum, item) => {
+    const { quantity, price } = item;
+
+    return sum + quantity * (price + calculateExtra(item));
   }, 0);
 
   const totalSum = Math.round(temp * 100) / 100;
