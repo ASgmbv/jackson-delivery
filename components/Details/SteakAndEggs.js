@@ -75,11 +75,6 @@ const SteakAndCheese = ({ onClose, ...props }) => {
         <option>Butter Croissant + $1.75</option>
         <option>Rustic Rye Bread + $0.00</option>
       </Select>
-
-      <FormLabel htmlFor="note" mt="6">
-        Additional note for chef?
-      </FormLabel>
-      <Textarea name="note" id="note" ref={register()} />
     </form>
   );
 };

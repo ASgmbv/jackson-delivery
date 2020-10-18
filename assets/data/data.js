@@ -9,7 +9,6 @@ export const sections = [
         price: 12.25,
         image: "/pizza.png",
         type: "classics-regular",
-        id: 1,
       },
       {
         title: "The Signature",
@@ -18,7 +17,6 @@ export const sections = [
         price: 12.5,
         image: "/abdurahman.jpg",
         type: "classics-signature",
-        id: 2,
       },
       {
         title: "Biscuits & Gravy",
@@ -27,7 +25,6 @@ export const sections = [
         price: 10.5,
         image: "/pizza.png",
         type: "classics-biscuits-gravy",
-        id: 3,
       },
       {
         title: "Steak & Eggs",
@@ -36,29 +33,28 @@ export const sections = [
           "Wyoming Gourmet Beef all natural grilled 6-ounce steak served with two eggs any style, hash browns OSM toast",
         image: "/pizza.png",
         type: "classics-steak-eggs",
-        id: 4,
       },
     ],
   },
-  {
-    title: "Pies",
-    items: [
-      {
-        title: "Raspberry Pie",
-        description: "",
-        price: 26,
-        image: "/pizza.png",
-        type: "pies-whole",
-        id: 5,
-      },
-      {
-        title: "Strawberry Pie",
-        description: "",
-        price: 26,
-        image: "/pizza.png",
-        type: "pies-whole",
-        id: 5,
-      },
-    ],
-  },
+  // {
+  //   title: "Whole Pies",
+  //   items: [
+  //     {
+  //       title: "Raspberry Pie",
+  //       description: "",
+  //       price: 26,
+  //       image: "/pizza.png",
+  //       type: "pies-whole",
+  //       id: 5,
+  //     },
+  //     {
+  //       title: "Strawberry Pie",
+  //       description: "",
+  //       price: 26,
+  //       image: "/pizza.png",
+  //       type: "pies-whole",
+  //       id: 6,
+  //     },
+  //   ],
+  // },
 ];

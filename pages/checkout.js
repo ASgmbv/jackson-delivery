@@ -17,7 +17,7 @@ import CheckoutItem from "../components/CheckoutItem/index";
 import { calculateExtra } from "../utils/calculateExtra";
 import { useState } from "react";
 import { SearchIcon } from "@chakra-ui/icons";
-import { Head } from "next/document";
+import Link from "next/link";
 
 const itemsSelector = (state) => state.items;
 
@@ -68,8 +68,6 @@ const Checkout = () => {
           </Stack>
           <Divider my="6" />
 
-          {/* <pre>{JSON.stringify(items, null, 2)}</pre> */}
-
           <Flex>
             <FormLabel htmlFor="tip" my="auto" fontWeight="bold" fontSize="lg">
               Tip:
@@ -81,8 +79,8 @@ const Checkout = () => {
                 setTipAmount(e.target.value);
               }}
             >
-              {[...new Array(25)].map((_, i) => (
-                <option key={i} value={i}>{`${i} %`}</option>
+              {[...new Array(16)].map((_, i) => (
+                <option key={"tip-" + i} value={i + 10}>{`${i + 10} %`}</option>
               ))}
             </Select>
             <Select
@@ -142,11 +140,15 @@ const Checkout = () => {
                   ${total}
                 </Text>
               </Heading>
-              <Button colorScheme="orange" size="lg">
-                Proceed
-              </Button>
+              <Link href="/order" passHref>
+                <Button as="a" colorScheme="orange" size="lg">
+                  Proceed
+                </Button>
+              </Link>
             </Flex>
           </Stack>
+
+          {/* <pre>{JSON.stringify(items, null, 2)}</pre> */}
 
           <Box my="100px" />
         </Container>

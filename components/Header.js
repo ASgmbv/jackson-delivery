@@ -45,13 +45,14 @@ const Header = ({ isWithCart = true }) => {
                 fontWeight="bold"
                 fontFamily="Montserrat"
                 mx="3"
+                display={["none", null, "block"]}
               >
                 JHONLINEORDER
               </Text>
             </Flex>
           </a>
         </Link>
-        <Flex flex="1" alignItem="center" flexDir="column" mx="10">
+        <Flex flex="1" alignItems="flex-start" flexDir="column" mx="10">
           <Text fontWeight="500">(307) 264-8232</Text>
           <Text fontSize="sm" color="gray.500">
             available 24 / 7

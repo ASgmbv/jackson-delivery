@@ -23,7 +23,11 @@ const SubMenu = ({ section }) => {
         {title}
       </Heading>
 
-      <Grid templateColumns="repeat(4, 1fr)" gridRowGap="10" gridColumnGap="8">
+      <Grid
+        templateColumns={["1fr", null, "repeat(4, 1fr)"]}
+        gridRowGap="12"
+        gridColumnGap="8"
+      >
         {items.map((item, index) => (
           <MenuItem key={index} {...item} />
         ))}

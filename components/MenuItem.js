@@ -20,6 +20,7 @@ import Details from "../components/Details/index.js";
 
 const MenuItem = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   const {
     title = "",
     description = "",
@@ -29,45 +30,14 @@ const MenuItem = (props) => {
 
   return (
     <Flex
-      flexDir="column"
+      flexDir={["column"]}
       sx={{
         cursor: "pointer",
       }}
     >
-      <AspectRatio
-        ratio="1"
-        width="100%"
-        sx={{
-          position: "relative",
-        }}
-      >
-        <Image
-          sx={{ width: "100%" }}
-          alt={title}
-          src={image}
-          sx={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            transition: "all 150ms ease-out 0s",
-          }}
-          fallback={
-            <Dish
-              fill="#EDEEF2"
-              style={{
-                width: "80%",
-                height: "80%",
-                margin: "auto",
-              }}
-            />
-          }
-          _hover={{
-            top: "5px",
-          }}
-        />
-      </AspectRatio>
+      <ItemImage title={title} image={image} />
 
-      <Heading as="h3" fontSize="xl" fontWeight="500" my="2" isTruncated>
+      <Heading as="h3" fontSize="lg" fontWeight="500" my="2" isTruncated>
         {title}
       </Heading>
 
@@ -82,7 +52,7 @@ const MenuItem = (props) => {
           fontWeight="500"
           fontFamily="Montserrat"
         >
-          {price} сом
+          $ {price}
         </Text>
 
         <Button onClick={onOpen} variant="outline" colorScheme="orange">
@@ -128,6 +98,30 @@ const MenuItem = (props) => {
         </Fade>
       </Flex>
     </Flex>
+  );
+};
+
+const ItemImage = ({ title, image }) => {
+  return (
+    <Image
+      alt={title}
+      src={image}
+      boxSize={["70px", "100px"]}
+      // display={["none", "block"]}
+      fallback={
+        <Dish
+          fill="#EDEEF2"
+          style={{
+            width: "80%",
+            height: "80%",
+            margin: "auto",
+          }}
+        />
+      }
+      _hover={{
+        top: "5px",
+      }}
+    />
   );
 };
 

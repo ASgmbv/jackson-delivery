@@ -82,11 +82,6 @@ const ClassicsSignature = ({ onClose, ...props }) => {
         <option>Pure Maple Syrup</option>
         <option>Sugar Free Syrup</option>
       </Select>
-
-      <FormLabel htmlFor="note" mt="6">
-        Additional note for chef?
-      </FormLabel>
-      <Textarea name="note" id="note" ref={register()} />
     </form>
   );
 };

@@ -7,7 +7,7 @@ import { calculateExtra } from "../utils/calculateExtra";
 
 const itemsSelector = (state) => state.items;
 
-const Cart = (params) => {
+const Cart = () => {
   const items = useCartStore(itemsSelector);
 
   // wrap in useCallback for performance
@@ -34,7 +34,7 @@ const Cart = (params) => {
       divider={<StackDivider borderColor="gray.200" align="stretch" />}
     >
       {items.map((item, index) => (
-        <CartItem data={item} key={index} />
+        <CartItem data={item} key={"cartItem-" + index} />
       ))}
       <Flex alignItems="center" justifyContent="space-between" py="3">
         <Link href="/checkout" passHref>

@@ -55,10 +55,9 @@ const useCartStore = create((set, get) => ({
   clearItem: (itemToClear) => {
     const { items } = get();
     return set({
-      items: items.filter((item) => item.id !== itemToClear.id),
+      items: items.filter((item) => item.title !== itemToClear.title),
     });
   },
-  clear: () => set({ bears: 0 }),
 }));
 
 export default useCartStore;

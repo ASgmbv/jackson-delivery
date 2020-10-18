@@ -1,30 +1,16 @@
-import {
-  Box,
-  Container,
-  Button,
-  Text,
-  Flex,
-  IconButton,
-  Stack,
-  StackDivider,
-  HStack,
-  Input,
-  useNumberInput,
-} from "@chakra-ui/core";
+import { Text, Flex, IconButton } from "@chakra-ui/core";
 import useCartStore from "../utils/hooks/useCartStore";
-import { DeleteIcon, SearchIcon, CloseIcon } from "@chakra-ui/icons";
+import { CloseIcon } from "@chakra-ui/icons";
 import Counter from "./Counter";
 import { calculateExtra } from "../utils/calculateExtra";
 
 const removeItemSelector = (state) => state.removeItem;
 const addItemSelector = (state) => state.addItem;
 const clearItemSelector = (state) => state.clearItem;
-const itemsSelector = (state) => state.items;
 
 const CartItem = ({ data }) => {
   const removeItem = useCartStore(removeItemSelector);
   const addItem = useCartStore(addItemSelector);
-  const items = useCartStore(itemsSelector);
   const clearItem = useCartStore(clearItemSelector);
 
   const totalPrice =
@@ -34,11 +20,12 @@ const CartItem = ({ data }) => {
     <Flex sx={{ flexDirection: "column" }}>
       <Flex sx={{ alignItems: "center", justifyContent: "space-between" }}>
         <Text fontWeight="500">{data.title}</Text>
+        {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
         <IconButton
+          icon={<CloseIcon boxSize="3" />}
           onClick={() => {
             clearItem(data);
           }}
-          icon={<CloseIcon />}
         />
       </Flex>
       <Flex
