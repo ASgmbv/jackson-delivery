@@ -10,6 +10,14 @@ import {
   FormLabel,
   Flex,
   Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure,
+  ModalCloseButton,
 } from "@chakra-ui/core";
 import useCartStore from "../utils/hooks/useCartStore";
 import Header from "../components/Header";
@@ -18,13 +26,20 @@ import { calculateExtra } from "../utils/calculateExtra";
 import { useState } from "react";
 import { SearchIcon } from "@chakra-ui/icons";
 import Link from "next/link";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "../components/CheckoutForm";
 
 const itemsSelector = (state) => state.items;
+
+const promise = loadStripe("pk_test_bXqaZTFq5jzyuGVIgzPA9Drp00FnXivkFg");
 
 const Checkout = () => {
   const items = useCartStore(itemsSelector);
   const [tipAmount, setTipAmount] = useState(10);
   const [isDelivery, setDelivery] = useState(true);
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const order =
     Math.round(
@@ -140,15 +155,38 @@ const Checkout = () => {
                   ${total}
                 </Text>
               </Heading>
-              <Link href="/order" passHref>
-                <Button as="a" colorScheme="orange" size="lg">
-                  Proceed
-                </Button>
-              </Link>
+              <Button as="a" colorScheme="orange" size="lg" onClick={onOpen}>
+                Proceed
+              </Button>
             </Flex>
           </Stack>
 
-          {/* <pre>{JSON.stringify(items, null, 2)}</pre> */}
+          <Modal
+            isOpen={isOpen}
+            onClose={onClose}
+            size="xl"
+            isCentered
+            scrollBehavior={"inside"}
+          >
+            <ModalOverlay>
+              <ModalContent>
+                <ModalHeader
+                  sx={{
+                    borderBottom: "1px solid",
+                    borderColor: "gray.100",
+                  }}
+                >
+                  Details
+                </ModalHeader>
+                <ModalBody>
+                  <ModalCloseButton />
+                  <Elements stripe={promise}>
+                    <CheckoutForm total={total} />
+                  </Elements>
+                </ModalBody>
+              </ModalContent>
+            </ModalOverlay>
+          </Modal>
 
           <Box my="100px" />
         </Container>

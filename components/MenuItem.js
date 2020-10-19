@@ -112,9 +112,8 @@ const ItemImage = ({ title, image }) => {
         <Dish
           fill="#EDEEF2"
           style={{
-            width: "80%",
-            height: "80%",
-            margin: "auto",
+            width: "70px",
+            height: "70px",
           }}
         />
       }

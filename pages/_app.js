@@ -1,6 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/core";
 import customTheme from "../theme";
 import Head from "next/head";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
