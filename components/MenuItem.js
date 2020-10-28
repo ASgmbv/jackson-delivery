@@ -59,43 +59,36 @@ const MenuItem = (props) => {
           Select
         </Button>
 
-        <Fade timeout={300} in={isOpen}>
-          {(styles) => {
-            return (
-              <Modal
-                isOpen={isOpen}
-                onClose={onClose}
-                size={"xl"}
-                scrollBehavior={"inside"}
-                isCentered
-              >
-                <ModalOverlay style={styles}>
-                  <ModalContent>
-                    <ModalHeader
-                      sx={{
-                        borderBottom: "1px solid",
-                        borderColor: "gray.100",
-                      }}
-                    >
-                      {title}
-                      <ModalCloseButton />
-                    </ModalHeader>
-                    <ModalBody>
-                      <Details {...props} onClose={onClose} />
-                    </ModalBody>
-                    <ModalFooter
-                      sx={{ borderTop: "1px solid", borderColor: "gray.100" }}
-                    >
-                      <Button colorScheme="orange" type="submit" form="form">
-                        Add to cart
-                      </Button>
-                    </ModalFooter>
-                  </ModalContent>
-                </ModalOverlay>
-              </Modal>
-            );
-          }}
-        </Fade>
+        <Modal
+          isOpen={isOpen}
+          onClose={onClose}
+          size={"xl"}
+          scrollBehavior={"inside"}
+          isCentered
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader
+              sx={{
+                borderBottom: "1px solid",
+                borderColor: "gray.100",
+              }}
+            >
+              {title}
+              <ModalCloseButton />
+            </ModalHeader>
+            <ModalBody>
+              <Details {...props} onClose={onClose} />
+            </ModalBody>
+            <ModalFooter
+              sx={{ borderTop: "1px solid", borderColor: "gray.100" }}
+            >
+              <Button colorScheme="orange" type="submit" form="form">
+                Add to cart
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
       </Flex>
     </Flex>
   );
