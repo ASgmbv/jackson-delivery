@@ -181,7 +181,7 @@ const Checkout = () => {
                 <ModalBody>
                   <ModalCloseButton />
                   <Elements stripe={promise}>
-                    <CheckoutForm total={total} />
+                    <CheckoutForm total={total} isDelivery={isDelivery} />
                   </Elements>
                 </ModalBody>
               </ModalContent>

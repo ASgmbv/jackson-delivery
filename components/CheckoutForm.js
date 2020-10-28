@@ -7,11 +7,14 @@ import {
   Input,
   FormControl,
   FormLabel,
+  FormErrorMessage,
+  Checkbox,
+  FormHelperText,
 } from "@chakra-ui/core";
 import { useForm } from "react-hook-form";
 import Header from "../components/Header";
 
-const CheckoutForm = ({ total }) => {
+const CheckoutForm = ({ total, isDelivery }) => {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState("");
@@ -47,6 +50,8 @@ const CheckoutForm = ({ total }) => {
     setError(event.error ? event.error.message : "");
   };
 
+  // TODO do something on successful submit
+  // change payment succeeded text
   const onSubmit = async (data) => {
     console.log({ data });
     setProcessing(true);
@@ -96,7 +101,7 @@ const CheckoutForm = ({ total }) => {
         as="form"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <FormControl>
+        <FormControl isInvalid={errors.name} my="2">
           <FormLabel color="#515F7E" htmlFor="name">
             Your name
           </FormLabel>
@@ -106,9 +111,11 @@ const CheckoutForm = ({ total }) => {
             type="text"
             ref={register({ required: true })}
           />
+          <FormErrorMessage>This field is required</FormErrorMessage>
         </FormControl>
 
-        <FormControl>
+        {/* TODO user can only type numbers */}
+        <FormControl isInvalid={errors.phone} my="2">
           <FormLabel color="#515F7E" htmlFor="phone">
             Your phone
           </FormLabel>
@@ -118,66 +125,64 @@ const CheckoutForm = ({ total }) => {
             type="text"
             ref={register({ required: true })}
           />
+          <FormErrorMessage>This field is required</FormErrorMessage>
         </FormControl>
 
-        <FormControl>
-          <FormLabel color="#515F7E" htmlFor="phone">
-            Your address
-          </FormLabel>
-          <Input
-            id="address"
-            name="address"
-            type="text"
-            ref={register({ required: true })}
-          />
-        </FormControl>
+        {isDelivery ? (
+          <FormControl isInvalid={errors.address} my="2">
+            <FormLabel color="#515F7E" htmlFor="address">
+              Your address
+            </FormLabel>
+            <Input
+              id="address"
+              name="address"
+              type="text"
+              ref={register({ required: true })}
+            />
+            <FormErrorMessage>This field is required</FormErrorMessage>
+          </FormControl>
+        ) : null}
 
-        <FormControl>
-          <FormLabel color="#515F7E" htmlFor="phone">
+        {/* TODO check email format */}
+        <FormControl my="6">
+          <FormLabel color="#515F7E" htmlFor="email">
             Your email
           </FormLabel>
-          <Input
-            id="address"
-            name="address"
-            type="text"
-            ref={register({ required: true })}
-          />
+          <Input id="email" name="email" type="text" ref={register} />
+          <FormHelperText>
+            Fill only if you want to receive order details on your email
+          </FormHelperText>
         </FormControl>
 
-        <FormControl>
-          <FormLabel color="#515F7E" htmlFor="phone">
+        <FormControl my="2" isInvalid={errors.date}>
+          <FormLabel color="#515F7E" htmlFor="date">
             Date
           </FormLabel>
           <Input
-            id="address"
-            name="address"
+            id="date"
+            name="date"
             type="date"
             ref={register({ required: true })}
           />
         </FormControl>
 
-        <FormControl>
-          <FormLabel color="#515F7E" htmlFor="phone">
+        <FormControl my="2" isInvalid={errors.time}>
+          <FormLabel color="#515F7E" htmlFor="time">
             Time
           </FormLabel>
           <Input
-            id="address"
-            name="address"
+            id="time"
+            name="time"
             type="time"
             ref={register({ required: true })}
           />
         </FormControl>
 
-        <FormControl>
-          <FormLabel color="#515F7E" htmlFor="phone">
+        <FormControl my="2">
+          <FormLabel color="#515F7E" htmlFor="note">
             Additional note
           </FormLabel>
-          <Input
-            id="address"
-            name="address"
-            type="text"
-            ref={register({ required: true })}
-          />
+          <Input id="note" name="note" type="text" ref={register} />
         </FormControl>
 
         <CardElement
