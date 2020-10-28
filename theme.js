@@ -1,7 +1,7 @@
 import { theme } from "@chakra-ui/core";
-import { merge } from "@chakra-ui/utils";
+import { extendTheme } from "@chakra-ui/core";
 
-const customTheme = merge(theme, {
+const customTheme = extendTheme({
   styles: {
     global: {
       ".stripe-checkout": {
