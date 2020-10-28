@@ -1,10 +1,10 @@
-const stripe = require("stripe")("sk_test_RmHsugbQGYQxacIKkyVRLL76004XvgSevP");
+const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
     // Process a POST request
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: 1000,
+      amount: req.body.amount,
       currency: "usd",
     });
 

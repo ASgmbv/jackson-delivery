@@ -8,13 +8,15 @@ import {
   FormControl,
   FormLabel,
   FormErrorMessage,
-  Checkbox,
   FormHelperText,
 } from "@chakra-ui/core";
 import { useForm } from "react-hook-form";
-import Header from "../components/Header";
+import useCartStore from "../utils/hooks/useCartStore";
+import { useRouter } from "next/router";
 
-const CheckoutForm = ({ total, isDelivery }) => {
+const itemsSelector = (state) => state.items;
+
+const CheckoutForm = ({ total, isDelivery, order, delivery, tax, tip }) => {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState("");
@@ -22,8 +24,9 @@ const CheckoutForm = ({ total, isDelivery }) => {
   const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
   const elements = useElements();
-
+  const items = useCartStore(itemsSelector);
   const { register, handleSubmit, watch, errors } = useForm();
+  const router = useRouter();
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -33,7 +36,9 @@ const CheckoutForm = ({ total, isDelivery }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(),
+        body: JSON.stringify({
+          amount: total * 100,
+        }),
       })
       .then((res) => {
         return res.json();
@@ -53,7 +58,6 @@ const CheckoutForm = ({ total, isDelivery }) => {
   // TODO do something on successful submit
   // change payment succeeded text
   const onSubmit = async (data) => {
-    console.log({ data });
     setProcessing(true);
     const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
@@ -67,6 +71,31 @@ const CheckoutForm = ({ total, isDelivery }) => {
       setError(null);
       setProcessing(false);
       setSucceeded(true);
+
+      let emailRes = await fetch("/api/sendEmail", {
+        method: "POST",
+        body: JSON.stringify({
+          items,
+          data,
+          prices: {
+            order,
+            delivery,
+            tax,
+            tip,
+            total,
+          },
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (emailRes.status === 200) {
+        router.push("/");
+      }
+
+      // status === 200 -> good
+      // status === 500 -> bad
     }
   };
 

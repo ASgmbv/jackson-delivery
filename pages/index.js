@@ -5,7 +5,7 @@ import { sections } from "../assets/data/data";
 import { Box } from "@chakra-ui/core";
 import Head from "next/head";
 import { useState } from "react";
-import ErrorBoundary from "../components/ErrorBoundary";
+import Layout from "../components/Layout";
 
 export default function Home() {
   function throwError() {
@@ -13,15 +13,11 @@ export default function Home() {
   }
 
   return (
-    <ErrorBoundary>
-      <Head>
-        <title>Jackson Online Order</title>
-      </Head>
-      <Header />
+    <Layout title="JH Online Orders">
       <Banner />
       <Menu sections={sections} />
       <Box sx={{ height: "100px" }} />
-    </ErrorBoundary>
+    </Layout>
   );
 }
 

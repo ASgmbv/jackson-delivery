@@ -4,22 +4,23 @@ const Banner = (params) => {
   return (
     <Container maxW="md">
       <Heading
+        as="h2"
         fontSize="3xl"
-        fontWeight="bold"
+        fontWeight="600"
         textAlign="center"
-        my="10"
-        color="blue.700"
+        pt="10"
+        mb="4"
       >
         The Bunnery restaurant
       </Heading>
 
       <Text
-        my="10"
         maxW="800px"
         textAlign="center"
         mx="auto"
         fontSize="lg"
-        fontWeight="500"
+        // fontWeight="500"
+        mb="10"
       >
         Place you Special order in Advance. Pick yp and Delivery order required
         at least 30 - 45 minutes. Hoping for your understanding!

@@ -10,16 +10,16 @@ const BiscuitsAndGravy = ({ onClose, ...props }) => {
   const addItem = useCartStore(addItemSelector);
 
   function onSubmit(values) {
-    addItem({ ...values, ...props });
+    addItem({ ...props, ...values });
 
     onClose();
-    toast({
-      position: "bottom-right",
-      title: "Item added to cart.",
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
+    // toast({
+    //   position: "bottom-right",
+    //   title: "Item added to cart.",
+    //   status: "success",
+    //   duration: 3000,
+    //   isClosable: true,
+    // });
   }
 
   return (

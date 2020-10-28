@@ -3,7 +3,6 @@ import {
   Text,
   Flex,
   Image,
-  AspectRatio,
   Button,
   useDisclosure,
   Modal,
@@ -12,7 +11,6 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-  Fade,
   ModalCloseButton,
 } from "@chakra-ui/core";
 import Dish from "../assets/icons/Dish";

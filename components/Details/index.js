@@ -1,4 +1,3 @@
-import { FormLabel, Select, Textarea } from "@chakra-ui/core";
 import ClassicsRegular from "./ClassicsRegular";
 import ClassicsSignature from "./ClassicsSignature";
 import BiscuitsAndGravy from "./BiscuitsAndGravy";

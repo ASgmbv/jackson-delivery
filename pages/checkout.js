@@ -25,10 +25,10 @@ import CheckoutItem from "../components/CheckoutItem/index";
 import { calculateExtra } from "../utils/calculateExtra";
 import { useState } from "react";
 import { SearchIcon } from "@chakra-ui/icons";
-import Link from "next/link";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../components/CheckoutForm";
+import Layout from "../components/Layout";
 
 const itemsSelector = (state) => state.items;
 
@@ -36,7 +36,7 @@ const promise = loadStripe("pk_test_bXqaZTFq5jzyuGVIgzPA9Drp00FnXivkFg");
 
 const Checkout = () => {
   const items = useCartStore(itemsSelector);
-  const [tipAmount, setTipAmount] = useState(10);
+  const [tipAmount, setTipAmount] = useState(15);
   const [isDelivery, setDelivery] = useState(true);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -60,8 +60,7 @@ const Checkout = () => {
   const total = Math.round((order + tax + delivery + tip) * 100) / 100;
 
   return (
-    <>
-      <Header isWithCart={false} />
+    <Layout title="checkout" withHeader={false}>
       {items.length === 0 ? (
         <Flex flexDir="column" alignItems="center" py="6">
           <Text>Card is empty</Text>
@@ -69,7 +68,7 @@ const Checkout = () => {
         </Flex>
       ) : (
         <Container maxW="sm">
-          <Heading as="h1" fontSize="3xl" mt="12">
+          <Heading as="h1" fontSize="3xl" pt="12">
             Cart
           </Heading>
           <Divider my="6" />
@@ -95,7 +94,7 @@ const Checkout = () => {
               }}
             >
               {[...new Array(16)].map((_, i) => (
-                <option key={"tip-" + i} value={i + 10}>{`${i + 10} %`}</option>
+                <option key={"tip-" + i} value={i + 15}>{`${i + 15} %`}</option>
               ))}
             </Select>
             <Select
@@ -181,7 +180,14 @@ const Checkout = () => {
                 <ModalBody>
                   <ModalCloseButton />
                   <Elements stripe={promise}>
-                    <CheckoutForm total={total} isDelivery={isDelivery} />
+                    <CheckoutForm
+                      total={total}
+                      order={order}
+                      delivery={delivery}
+                      tax={tax}
+                      tip={tip}
+                      isDelivery={isDelivery}
+                    />
                   </Elements>
                 </ModalBody>
               </ModalContent>
@@ -191,7 +197,7 @@ const Checkout = () => {
           <Box my="100px" />
         </Container>
       )}
-    </>
+    </Layout>
   );
 };
 
