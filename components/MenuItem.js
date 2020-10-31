@@ -12,9 +12,11 @@ import {
   ModalBody,
   ModalFooter,
   ModalCloseButton,
+  Divider,
 } from "@chakra-ui/core";
 import Dish from "../assets/icons/Dish";
 import Details from "../components/Details/index.js";
+import NextImage from "next/image";
 
 const MenuItem = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -44,12 +46,7 @@ const MenuItem = (props) => {
       </Text>
 
       <Flex justifyContent="space-between" alignItems="center" mt="auto">
-        <Text
-          as="span"
-          fontSize="22px"
-          fontWeight="500"
-          fontFamily="Montserrat"
-        >
+        <Text as="span" fontSize="xl" fontWeight="500" fontFamily="Montserrat">
           $ {price}
         </Text>
 
@@ -85,26 +82,7 @@ const MenuItem = (props) => {
 };
 
 const ItemImage = ({ title, image }) => {
-  return (
-    <Image
-      alt={title}
-      src={image}
-      boxSize={["70px", "100px"]}
-      // display={["none", "block"]}
-      fallback={
-        <Dish
-          fill="#EDEEF2"
-          style={{
-            width: "70px",
-            height: "70px",
-          }}
-        />
-      }
-      _hover={{
-        top: "5px",
-      }}
-    />
-  );
+  return <NextImage alt={title} src={image} width="70" height="70" />;
 };
 
 export default MenuItem;

@@ -5,7 +5,7 @@ const customTheme = extendTheme({
   styles: {
     global: {
       html: {
-        fontSize: ["10px", null, "16px"],
+        fontSize: ["14px", null, "16px"],
       },
       ".stripe-checkout": {
         input: {

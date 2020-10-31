@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <Layout title="JH Online Orders">
-      <Banner />
+      {/* <Banner /> */}
       <Menu sections={sections} />
       <Box sx={{ height: "100px" }} />
     </Layout>

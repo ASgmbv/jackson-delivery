@@ -43,12 +43,12 @@ const Header = ({ isWithCart = true }) => {
         <Link href="/" passHref>
           <a>
             <Flex alignItems="center">
-              <Logo style={{ height: "4rem", width: "6rem" }} />
+              <Logo style={{ height: "5rem", width: "5rem" }} />
               <Text
                 fontSize="2xl"
                 fontWeight="bold"
                 fontFamily="Montserrat"
-                mx="3"
+                mx={3}
                 display={["none", null, "block"]}
               >
                 JHONLINEORDER
@@ -56,7 +56,12 @@ const Header = ({ isWithCart = true }) => {
             </Flex>
           </a>
         </Link>
-        <Flex flex="1" alignItems="flex-start" flexDir="column" mx="10">
+        <Flex
+          flex="1"
+          alignItems="flex-start"
+          flexDir="column"
+          mx={[6, null, 10]}
+        >
           <Text fontWeight="500">(307) 264-8232</Text>
           <Text fontSize="sm" color="gray.500">
             available 24 / 7
