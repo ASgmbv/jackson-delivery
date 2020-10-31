@@ -1,8 +1,9 @@
-import { Flex, Image, Stack, Text, IconButton } from "@chakra-ui/core";
+import { Flex, Image, Heading, Stack, Text, IconButton } from "@chakra-ui/core";
 import Counter from "../Counter";
 import { CloseIcon } from "@chakra-ui/icons";
 import useCartStore from "../../utils/hooks/useCartStore";
 import { calculateExtra } from "../../utils/calculateExtra";
+import NextImage from "next/image";
 
 const removeItemSelector = (state) => state.removeItem;
 const addItemSelector = (state) => state.addItem;
@@ -28,73 +29,47 @@ const BiscuitsAndGravy = (props) => {
 
   return (
     <Flex flexDir="column">
-      <Flex alignItems="center" justifyContent="space-between">
-        <Image
-          src={image}
-          boxSize="64px"
-          objectFit="cover"
-          alt={title}
-          alignSelf="flex-start"
-        />
-        <Stack flex="1" mx="4" spacing="2" display={["none", null, "flex"]}>
-          <Text fontWeight="500" fontSize="lg">
-            {title}
-          </Text>
-
-          <Text fontSize="sm" color="gray.500">
-            {description}
-          </Text>
-
-          <Property title="Crispy hash browns" value={crispyHashBrowns} />
-        </Stack>
-
-        <Counter
-          value={quantity}
-          onDec={() => removeItem({ ...props })}
-          onInc={() => addItem({ ...props })}
-          alignSelf="flex-start"
-          my="10px"
-        />
-        <Text
-          alignSelf="flex-start"
-          fontWeight="500"
-          my="17px"
-          width="80px"
-          textAlign="center"
-        >
-          {"$ " + totalPrice}
-        </Text>
+      <Flex justifyContent="space-between">
+        <NextImage src={image} width="70px" height="70px" alt={title} />
         <IconButton
           onClick={() => {
             clearItem({ ...props });
           }}
           icon={<CloseIcon />}
           alignSelf="flex-start"
-          my="10px"
         />
       </Flex>
-      <Stack flex="1" mx="4" spacing="2" display={["flex", null, "none"]}>
-        <Text fontWeight="500" fontSize="lg">
+      <Stack>
+        <Heading as="h3" fontSize="lg" fontWeight="500" isTruncated>
           {title}
-        </Text>
-
-        <Text fontSize="sm" color="gray.500">
+        </Heading>
+        <Text fontSize="sm" lineHeight="20px" color="gray.500">
           {description}
         </Text>
 
-        <Property title="Crispy hash browns" value={crispyHashBrowns} />
+        <Text fontSize="sm" color="gray.500">
+          Crispy Hash Browns:
+          <Text as="span" color="black">
+            {" " + crispyHashBrowns}
+          </Text>
+        </Text>
       </Stack>
-    </Flex>
-  );
-};
-
-const Property = ({ title, value }) => {
-  return (
-    <Flex flexDir="column">
-      <Text fontSize="xs" color="gray.500">
-        {title}
-      </Text>
-      <Text fontSize="sm">{value}</Text>
+      <Flex justifyContent="space-between" mt="4">
+        <Counter
+          value={quantity}
+          onDec={() => removeItem({ ...props })}
+          onInc={() => addItem({ ...props })}
+          alignSelf="flex-start"
+        />
+        <Text
+          alignSelf="flex-start"
+          fontWeight="500"
+          width="80px"
+          textAlign="center"
+        >
+          {"$ " + totalPrice}
+        </Text>
+      </Flex>
     </Flex>
   );
 };

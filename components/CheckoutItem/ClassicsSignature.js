@@ -1,8 +1,9 @@
-import { Flex, Image, Stack, Text, IconButton } from "@chakra-ui/core";
+import { Flex, Image, Stack, Text, IconButton, Heading } from "@chakra-ui/core";
 import Counter from "../Counter";
 import { CloseIcon } from "@chakra-ui/icons";
 import useCartStore from "../../utils/hooks/useCartStore";
 import { calculateExtra } from "../../utils/calculateExtra";
+import NextImage from "next/image";
 
 const removeItemSelector = (state) => state.removeItem;
 const addItemSelector = (state) => state.addItem;
@@ -31,75 +32,77 @@ const ClassicsSignature = (props) => {
 
   return (
     <Flex flexDir="column">
-      <Flex alignItems="center" justifyContent="space-between">
-        <Image
-          src={image}
-          boxSize="64px"
-          objectFit="cover"
-          alt={title}
-          alignSelf="flex-start"
-        />
-        <Stack flex="1" mx="4" spacing="2" display={["none", null, "flex"]}>
-          <Text fontWeight="500" fontSize="lg">
-            {title}
-          </Text>
-
-          <Text fontSize="sm" color="gray.500">
-            {description}
-          </Text>
-
-          <Property title="Egg type" value={eggsType} />
-
-          {cheeseType && <Property title="Cheese type" value={cheeseType} />}
-
-          <Property title="Pancake type" value={pancakeType} />
-          <Property title="Meat type" value={meatType} />
-          <Property title="Syrup type" value={syrupType} />
-        </Stack>
-
-        <Counter
-          value={quantity}
-          onDec={() => removeItem({ ...props })}
-          onInc={() => addItem({ ...props })}
-          alignSelf="flex-start"
-          my="10px"
-        />
-        <Text
-          alignSelf="flex-start"
-          fontWeight="500"
-          my="17px"
-          width="80px"
-          textAlign="center"
-        >
-          {"$ " + totalPrice}
-        </Text>
+      <Flex justifyContent="space-between">
+        <NextImage src={image} width="70px" height="70px" alt={title} />
         <IconButton
           onClick={() => {
             clearItem({ ...props });
           }}
           icon={<CloseIcon />}
           alignSelf="flex-start"
-          my="10px"
         />
       </Flex>
-
-      <Stack flex="1" mx="4" spacing="2" display={["flex", null, "none"]}>
-        <Text fontWeight="500" fontSize="lg">
+      <Stack>
+        <Heading as="h3" fontSize="lg" fontWeight="500" isTruncated>
           {title}
-        </Text>
-
-        <Text fontSize="sm" color="gray.500">
+        </Heading>
+        <Text fontSize="sm" lineHeight="20px" color="gray.500">
           {description}
         </Text>
 
-        <Property title="Egg type" value={eggsType} />
+        <Text fontSize="sm" color="gray.500">
+          Egg Type:
+          <Text as="span" color="black">
+            {" " + eggsType}
+          </Text>
+        </Text>
 
-        {cheeseType && <Property title="Cheese type" value={cheeseType} />}
+        <Text fontSize="sm" color="gray.500">
+          Pancake Type:
+          <Text as="span" color="black">
+            {" " + pancakeType}
+          </Text>
+        </Text>
 
-        <Property title="Pancake type" value={pancakeType} />
-        <Property title="Meat type" value={meatType} />
-        <Property title="Syrup type" value={syrupType} />
+        <Text fontSize="sm" color="gray.500">
+          Meat Type:
+          <Text as="span" color="black">
+            {" " + meatType}
+          </Text>
+        </Text>
+
+        <Text fontSize="sm" color="gray.500">
+          Syrup Type:
+          <Text as="span" color="black">
+            {" " + syrupType}
+          </Text>
+        </Text>
+
+        {cheeseType && (
+          <Text fontSize="sm" color="gray.500">
+            Cheese Type:
+            <Text as="span" color="black">
+              {" " + cheeseType}
+            </Text>
+          </Text>
+        )}
       </Stack>
+      <Flex justifyContent="space-between" mt="4">
+        <Counter
+          value={quantity}
+          onDec={() => removeItem({ ...props })}
+          onInc={() => addItem({ ...props })}
+          alignSelf="flex-start"
+        />
+        <Text
+          alignSelf="flex-start"
+          fontWeight="500"
+          width="80px"
+          textAlign="center"
+        >
+          {"$ " + totalPrice}
+        </Text>
+      </Flex>
     </Flex>
   );
 };

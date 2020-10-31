@@ -67,10 +67,32 @@ const Header = ({ isWithCart = true }) => {
             available 24 / 7
           </Text>
         </Flex>
+
+        <Link href="/checkout" passHref>
+          <Button
+            d={["inline-flex", null, "none"]}
+            as="a"
+            rightIcon={
+              <Box
+                sx={{
+                  textAlign: "start",
+                }}
+              >
+                | {items.length}
+              </Box>
+            }
+            colorScheme="orange"
+            variant="solid"
+          >
+            Cart
+          </Button>
+        </Link>
+
         {isWithCart ? (
           <Popover placement="bottom">
             <PopoverTrigger>
               <Button
+                d={["none", null, "inline-flex"]}
                 rightIcon={
                   <Box
                     sx={{

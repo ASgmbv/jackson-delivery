@@ -3,6 +3,7 @@ import Counter from "../Counter";
 import { CloseIcon } from "@chakra-ui/icons";
 import useCartStore from "../../utils/hooks/useCartStore";
 import { calculateExtra } from "../../utils/calculateExtra";
+import NextImage from "next/image";
 
 const removeItemSelector = (state) => state.removeItem;
 const addItemSelector = (state) => state.addItem;
@@ -31,14 +32,77 @@ const SteakAndEggs = (props) => {
 
   return (
     <Flex flexDir="column">
-      <Flex alignItems="center" justifyContent="space-between">
-        <Image
-          src={image}
-          boxSize="64px"
-          objectFit="cover"
-          alt={title}
+      <Flex justifyContent="space-between">
+        <NextImage src={image} width="70px" height="70px" alt={title} />
+        <IconButton
+          onClick={() => {
+            clearItem({ ...props });
+          }}
+          icon={<CloseIcon />}
           alignSelf="flex-start"
         />
+      </Flex>
+      <Stack>
+        <Heading as="h3" fontSize="lg" fontWeight="500" isTruncated>
+          {title}
+        </Heading>
+        <Text fontSize="sm" lineHeight="20px" color="gray.500">
+          {description}
+        </Text>
+
+        <Text fontSize="sm" color="gray.500">
+          Eggs Type:
+          <Text as="span" color="black">
+            {" " + eggsType}
+          </Text>
+        </Text>
+
+        {cheeseType && (
+          <Text fontSize="sm" color="gray.500">
+            Cheese Type:
+            <Text as="span" color="black">
+              {" " + cheeseType}
+            </Text>
+          </Text>
+        )}
+
+        <Text fontSize="sm" color="gray.500">
+          Steak Type:
+          <Text as="span" color="black">
+            {" " + steakType}
+          </Text>
+        </Text>
+
+        <Text fontSize="sm" color="gray.500">
+          Toast substitute
+          <Text as="span" color="black">
+            {" " + toastSub}
+          </Text>
+        </Text>
+      </Stack>
+      <Flex justifyContent="space-between" mt="4">
+        <Counter
+          value={quantity}
+          onDec={() => removeItem({ ...props })}
+          onInc={() => addItem({ ...props })}
+          alignSelf="flex-start"
+        />
+        <Text
+          alignSelf="flex-start"
+          fontWeight="500"
+          width="80px"
+          textAlign="center"
+        >
+          {"$ " + totalPrice}
+        </Text>
+      </Flex>
+    </Flex>
+  );
+
+  return (
+    <Flex flexDir="column">
+      <Flex alignItems="center" justifyContent="space-between">
+        <NextImage src={image} width="70px" height="70px" alt={title} />
         <Stack flex="1" mx="4" spacing="2" display={["none", null, "flex"]}>
           <Text fontWeight="500" fontSize="lg">
             {title}

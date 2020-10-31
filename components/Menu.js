@@ -4,13 +4,11 @@ import MenuItem from "./MenuItem";
 
 const Menu = ({ sections = [] }) => {
   return (
-    <Container maxW="xl" as="section">
-      <Stack spacing="16">
-        {sections.map((section, index) => (
-          <SubMenu key={index} section={section} />
-        ))}
-      </Stack>
-    </Container>
+    <Stack spacing="16">
+      {sections.map((section, index) => (
+        <SubMenu key={index} section={section} />
+      ))}
+    </Stack>
   );
 };
 

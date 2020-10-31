@@ -67,135 +67,144 @@ const Checkout = () => {
           <SearchIcon />
         </Flex>
       ) : (
-        <Container maxW="sm">
-          <Heading as="h1" fontSize="3xl" pt="12">
+        <>
+          <Heading as="h2" fontSize="2xl" fontWeight="600" py="6">
             Cart
           </Heading>
-          <Divider my="6" />
-          <Stack
-            spacing="8"
-            divider={<StackDivider borderColor="gray.200" align="stretch" />}
-          >
-            {items.map((item, index) => (
-              <CheckoutItem key={index} {...item} />
-            ))}
-          </Stack>
-          <Divider my="6" />
-
-          <Flex>
-            <FormLabel htmlFor="tip" my="auto" fontWeight="bold" fontSize="lg">
-              Tip:
-            </FormLabel>
-            <Select
-              name="tip"
-              value={tipAmount}
-              onChange={(e) => {
-                setTipAmount(e.target.value);
-              }}
+          <Container maxW="sm">
+            <Divider my="6" />
+            <Stack
+              spacing="8"
+              divider={<StackDivider borderColor="gray.200" align="stretch" />}
             >
-              {[...new Array(16)].map((_, i) => (
-                <option key={"tip-" + i} value={i + 15}>{`${i + 15} %`}</option>
+              {items.map((item, index) => (
+                <CheckoutItem key={index} {...item} />
               ))}
-            </Select>
-            <Select
-              value={isDelivery}
-              onChange={(e) => {
-                setDelivery(Number(e.target.value));
-              }}
-              ml="4"
-            >
-              <option value={1}>Delivery</option>
-              <option value={0}>Pick up</option>
-            </Select>
-          </Flex>
+            </Stack>
+            <Divider my="6" />
 
-          <Divider my="6" />
+            <Flex>
+              <FormLabel
+                htmlFor="tip"
+                my="auto"
+                fontWeight="bold"
+                fontSize="lg"
+              >
+                Tip:
+              </FormLabel>
+              <Select
+                name="tip"
+                value={tipAmount}
+                onChange={(e) => {
+                  setTipAmount(e.target.value);
+                }}
+              >
+                {[...new Array(16)].map((_, i) => (
+                  <option key={"tip-" + i} value={i + 15}>{`${
+                    i + 15
+                  } %`}</option>
+                ))}
+              </Select>
+              <Select
+                value={isDelivery}
+                onChange={(e) => {
+                  setDelivery(Number(e.target.value));
+                }}
+                ml="4"
+              >
+                <option value={1}>Delivery</option>
+                <option value={0}>Pick up</option>
+              </Select>
+            </Flex>
 
-          <Stack spacing="4">
-            <Heading as="h2" fontSize="xl">
-              {"Order: "}
-              <Text as="span" color="#FF6901">
-                ${order}
-              </Text>
-            </Heading>
-            {isDelivery ? (
-              <>
-                <Heading as="h2" fontSize="xl">
-                  {"Delivery: "}
-                  <Text as="span" color="#FF6901">
-                    ${delivery}
-                  </Text>
-                </Heading>
-                <Heading as="h2" fontSize="xl">
-                  {"Subtotal: "}
-                  <Text as="span" color="#FF6901">
-                    ${order + delivery}
-                  </Text>
-                </Heading>
-              </>
-            ) : null}
-            <Heading as="h2" fontSize="xl">
-              {"Tax: "}
-              <Text as="span" color="#FF6901">
-                ${tax}
-              </Text>
-            </Heading>
-            <Heading as="h2" fontSize="xl">
-              {"Tip: "}
-              <Text as="span" color="#FF6901">
-                ${tip}
-              </Text>
-            </Heading>
-            <Divider />
-            <Flex alignItems="center" justifyContent="space-between">
-              <Heading as="h2" fontSize="2xl">
-                {"Total: "}
+            <Divider my="6" />
+
+            <Stack spacing="4">
+              <Heading as="h2" fontSize="xl">
+                {"Order: "}
                 <Text as="span" color="#FF6901">
-                  ${total}
+                  ${order}
                 </Text>
               </Heading>
-              <Button as="a" colorScheme="orange" size="lg" onClick={onOpen}>
-                Proceed
-              </Button>
-            </Flex>
-          </Stack>
+              {isDelivery ? (
+                <>
+                  <Heading as="h2" fontSize="xl">
+                    {"Delivery: "}
+                    <Text as="span" color="#FF6901">
+                      ${delivery}
+                    </Text>
+                  </Heading>
+                  <Heading as="h2" fontSize="xl">
+                    {"Subtotal: "}
+                    <Text as="span" color="#FF6901">
+                      ${order + delivery}
+                    </Text>
+                  </Heading>
+                </>
+              ) : null}
+              <Heading as="h2" fontSize="xl">
+                {"Tax: "}
+                <Text as="span" color="#FF6901">
+                  ${tax}
+                </Text>
+              </Heading>
+              <Heading as="h2" fontSize="xl">
+                {"Tip: "}
+                <Text as="span" color="#FF6901">
+                  ${tip}
+                </Text>
+              </Heading>
+              <Divider />
+              <Flex alignItems="center" justifyContent="space-between">
+                <Heading as="h2" fontSize="2xl">
+                  {"Total: "}
+                  <Text as="span" color="#FF6901">
+                    ${total}
+                  </Text>
+                </Heading>
+                <Button as="a" colorScheme="orange" size="lg" onClick={onOpen}>
+                  Proceed
+                </Button>
+              </Flex>
+            </Stack>
 
-          <Modal
-            isOpen={isOpen}
-            onClose={onClose}
-            size="xl"
-            isCentered
-            scrollBehavior={"inside"}
-          >
-            <ModalOverlay>
-              <ModalContent>
-                <ModalHeader
-                  sx={{
-                    borderBottom: "1px solid",
-                    borderColor: "gray.100",
-                  }}
-                >
-                  Details
-                </ModalHeader>
-                <ModalBody>
-                  <ModalCloseButton />
-                  <Elements stripe={promise}>
-                    <CheckoutForm
-                      total={total}
-                      order={order}
-                      delivery={delivery}
-                      tax={tax}
-                      tip={tip}
-                      isDelivery={isDelivery}
-                    />
-                  </Elements>
-                </ModalBody>
-              </ModalContent>
-            </ModalOverlay>
-          </Modal>
+            <Modal
+              isOpen={isOpen}
+              onClose={onClose}
+              size="xl"
+              isCentered
+              scrollBehavior={"inside"}
+            >
+              <ModalOverlay>
+                <ModalContent>
+                  <ModalHeader
+                    sx={{
+                      borderBottom: "1px solid",
+                      borderColor: "gray.100",
+                    }}
+                  >
+                    Details
+                  </ModalHeader>
+                  <ModalBody>
+                    <ModalCloseButton />
+                    <Elements stripe={promise}>
+                      <CheckoutForm
+                        total={total}
+                        order={order}
+                        delivery={delivery}
+                        tax={tax}
+                        tip={tip}
+                        isDelivery={isDelivery}
+                      />
+                    </Elements>
+                  </ModalBody>
+                </ModalContent>
+              </ModalOverlay>
+            </Modal>
 
-          <Box my="100px" />
-        </Container>
+            <Box my="100px" />
+          </Container>
+        </>
       )}
     </Layout>
   );
