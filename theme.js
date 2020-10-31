@@ -4,6 +4,9 @@ import { extendTheme } from "@chakra-ui/core";
 const customTheme = extendTheme({
   styles: {
     global: {
+      html: {
+        fontSize: ["10px", null, "16px"],
+      },
       ".stripe-checkout": {
         input: {
           borderRadius: "6px",

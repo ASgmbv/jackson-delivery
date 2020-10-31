@@ -57,13 +57,7 @@ const MenuItem = (props) => {
           Select
         </Button>
 
-        <Modal
-          isOpen={isOpen}
-          onClose={onClose}
-          size={"xl"}
-          scrollBehavior={"inside"}
-          isCentered
-        >
+        <Modal isOpen={isOpen} onClose={onClose} size={"xl"} isCentered>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader
@@ -78,9 +72,7 @@ const MenuItem = (props) => {
             <ModalBody>
               <Details {...props} onClose={onClose} />
             </ModalBody>
-            <ModalFooter
-              sx={{ borderTop: "1px solid", borderColor: "gray.100" }}
-            >
+            <ModalFooter>
               <Button colorScheme="orange" type="submit" form="form">
                 Add to cart
               </Button>

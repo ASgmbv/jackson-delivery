@@ -43,7 +43,7 @@ const Header = ({ isWithCart = true }) => {
         <Link href="/" passHref>
           <a>
             <Flex alignItems="center">
-              <Logo style={{ height: "60px", width: "80px" }} />
+              <Logo style={{ height: "4rem", width: "6rem" }} />
               <Text
                 fontSize="2xl"
                 fontWeight="bold"
@@ -67,7 +67,12 @@ const Header = ({ isWithCart = true }) => {
             <PopoverTrigger>
               <Button
                 rightIcon={
-                  <Box sx={{ width: "25px", textAlign: "start" }}>
+                  <Box
+                    sx={{
+                      // width: "25px",
+                      textAlign: "start",
+                    }}
+                  >
                     | {items.length}
                   </Box>
                 }
