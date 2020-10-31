@@ -54,7 +54,13 @@ const MenuItem = (props) => {
           Select
         </Button>
 
-        <Modal isOpen={isOpen} onClose={onClose} size={"xl"} isCentered>
+        <Modal
+          isOpen={isOpen}
+          onClose={onClose}
+          size={"xl"}
+          blockScrollOnMount={true}
+          // isCentered
+        >
           <ModalOverlay />
           <ModalContent>
             <ModalHeader
