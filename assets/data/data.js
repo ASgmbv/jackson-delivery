@@ -374,6 +374,318 @@ export const sections = [
     title: "Breakfast",
     items: [
       {
+        title: "Guacamola Omelette",
+        descriptin:
+          "Fresh guacamola, sauteed mushrooms, diced tomatoes and Swiss cheese",
+        price: 14.25,
+        image: "/food/guacamola-omelette.jpg",
+        options: [
+          {
+            title: "Would you add meat to your omelette?",
+            slug: "Meat Type",
+            values: [
+              {
+                value: "Bacon",
+                extra: 1.5,
+              },
+              {
+                value: "Ham",
+                extra: 1.5,
+              },
+              {
+                value: "Sausage",
+                extra: 1.5,
+              },
+              {
+                value: "Turkey",
+                extra: 1.5,
+              },
+            ],
+          },
+          {
+            title: "Would you substitute guacamola?",
+            slug: "Guacamola Substitute",
+            values: [
+              {
+                value: "No",
+                extra: 0,
+              },
+              {
+                value: "No Guacamola",
+                extra: 0,
+              },
+              {
+                value: "Broccoli",
+                extra: 0,
+              },
+              {
+                value: "Fresh Onions",
+                extra: 0,
+              },
+              {
+                value: "Fresh Spinach",
+                extra: 0,
+              },
+              {
+                value: "Sauteed Spinach",
+                extra: 0,
+              },
+              {
+                value: "Green Peppers",
+                extra: 0,
+              },
+              {
+                value: "Green Chillies",
+                extra: 0,
+              },
+            ],
+          },
+          {
+            title: "Hash Browns",
+            slug: "Hash Browns",
+            values: [
+              {
+                value: "No Hash Browns",
+                extra: 0,
+              },
+              {
+                value: "Crispy Hash Browns",
+                extra: 0,
+              },
+            ],
+          },
+          {
+            title: "What type of bread would you like with your order?",
+            slug: "Bread Type",
+            values: [
+              {
+                value: "Cinnamon Bread",
+                extra: 0,
+              },
+              {
+                value: "Cinnamon Raisin Bread",
+                extra: 0,
+              },
+              {
+                value: "White Bread",
+                extra: 0,
+              },
+              {
+                value: "OSM Bread",
+                extra: 0,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        title: "Vegetarian Omelette",
+        description:
+          "Sauteed mushrooms, diced tomatoes, onions and Swiss cheese",
+        price: 14,
+        image: "/food/vegetarian-omelette.jpg",
+        options: [
+          {
+            title: "Would you substitute Swiss cheese?",
+            slug: "Cheese Type",
+            values: [
+              {
+                value: "No",
+                extra: 0,
+              },
+              {
+                value: "No Swiss",
+                extra: 0,
+              },
+              {
+                value: "Cheddar Cheese",
+                extra: 0,
+              },
+              {
+                value: "Pepper Jack Cheese",
+                extra: 0,
+              },
+            ],
+          },
+          {
+            title: "Would you add meat to your omelette?",
+            slug: "Meat Type",
+            values: [
+              {
+                value: "No Meat",
+                extra: 0,
+              },
+              {
+                value: "Diced Bacon",
+                extra: 0,
+              },
+              {
+                value: "Diced Ham",
+                extra: 0,
+              },
+              {
+                value: "Diced Sausage",
+                extra: 0,
+              },
+              {
+                value: "Diced Turkey",
+                extra: 0,
+              },
+            ],
+          },
+          {
+            title: "Would you substitute onions?",
+            slug: "Onions Substitute",
+            values: [
+              {
+                value: "No",
+                extra: 0,
+              },
+              {
+                value: "No Onions",
+                extra: 0,
+              },
+              {
+                value: "Brocolli",
+                extra: 0,
+              },
+              {
+                value: "Fresh Spinach",
+                extra: 0,
+              },
+              {
+                value: "Sauteed Spinach",
+                extra: 0,
+              },
+              {
+                value: "Jalapenos",
+                extra: 0,
+              },
+              {
+                value: "Green Pepper",
+                extra: 0,
+              },
+              {
+                value: "Green Chilies",
+                extra: 0,
+              },
+            ],
+          },
+          {
+            title: "Would you substitute tomatoes?",
+            slug: "Tomatoes Substitute",
+            values: [
+              {
+                value: "No",
+                extra: 0,
+              },
+              {
+                value: "No Tomatoes",
+                extra: 0,
+              },
+              {
+                value: "Brocolli",
+                extra: 0,
+              },
+              {
+                value: "Fresh Spinach",
+                extra: 0,
+              },
+              {
+                value: "Sauteed Spinach",
+                extra: 0,
+              },
+              {
+                value: "Jalapenos",
+                extra: 0,
+              },
+              {
+                value: "Green Pepper",
+                extra: 0,
+              },
+              {
+                value: "Green Chilies",
+                extra: 0,
+              },
+            ],
+          },
+          {
+            title: "Would you substitute mushrooms?",
+            slug: "Mushrooms Substitute",
+            values: [
+              {
+                value: "No",
+                extra: 0,
+              },
+              {
+                value: "No Mushrooms",
+                extra: 0,
+              },
+              {
+                value: "Brocolli",
+                extra: 0,
+              },
+              {
+                value: "Fresh Spinach",
+                extra: 0,
+              },
+              {
+                value: "Sauteed Spinach",
+                extra: 0,
+              },
+              {
+                value: "Jalapenos",
+                extra: 0,
+              },
+              {
+                value: "Green Pepper",
+                extra: 0,
+              },
+              {
+                value: "Green Chilies",
+                extra: 0,
+              },
+            ],
+          },
+          {
+            title: "Hash Browns",
+            slug: "Hash Browns",
+            values: [
+              {
+                value: "No Hash Browns",
+                extra: 0,
+              },
+              {
+                value: "Crispy Hash Browns",
+                extra: 0,
+              },
+            ],
+          },
+          {
+            title: "What type of bread would you like with your order?",
+            slug: "Bread Type",
+            values: [
+              {
+                value: "Cinnamon Bread",
+                extra: 0,
+              },
+              {
+                value: "Cinnamon Raisin Bread",
+                extra: 0,
+              },
+              {
+                value: "White Bread",
+                extra: 0,
+              },
+              {
+                value: "OSM Bread",
+                extra: 0,
+              },
+            ],
+          },
+        ],
+      },
+      {
         title: "Bacon Omelette, Jackson Favorite",
         description:
           "Melted cheddar cheese, luscious diced bacon and fresh diced tomato",

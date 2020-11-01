@@ -27,7 +27,7 @@ const CheckoutForm = ({ total, isDelivery, order, delivery, tax, tip }) => {
   const stripe = useStripe();
   const elements = useElements();
   const items = useCartStore(itemsSelector);
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm();
   const router = useRouter();
   const toast = useToast();
 
