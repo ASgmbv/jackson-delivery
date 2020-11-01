@@ -1,3 +1,5 @@
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import {
@@ -8,7 +10,7 @@ import {
   FormControl,
   FormLabel,
   FormErrorMessage,
-  FormHelperText,
+  useToast,
 } from "@chakra-ui/core";
 import { useForm } from "react-hook-form";
 import useCartStore from "../utils/hooks/useCartStore";
@@ -27,6 +29,7 @@ const CheckoutForm = ({ total, isDelivery, order, delivery, tax, tip }) => {
   const items = useCartStore(itemsSelector);
   const { register, handleSubmit, watch, errors } = useForm();
   const router = useRouter();
+  const toast = useToast();
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -91,6 +94,13 @@ const CheckoutForm = ({ total, isDelivery, order, delivery, tax, tip }) => {
       });
 
       if (emailRes.status === 200) {
+        toast({
+          position: "bottom-right",
+          title: "Successful Order!",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
         router.push("/");
       }
 
@@ -173,7 +183,7 @@ const CheckoutForm = ({ total, isDelivery, order, delivery, tax, tip }) => {
         ) : null}
 
         {/* TODO check email format */}
-        <FormControl my="6">
+        {/* <FormControl my="6">
           <FormLabel color="#515F7E" htmlFor="email">
             Your email
           </FormLabel>
@@ -181,7 +191,7 @@ const CheckoutForm = ({ total, isDelivery, order, delivery, tax, tip }) => {
           <FormHelperText>
             Fill only if you want to receive order details on your email
           </FormHelperText>
-        </FormControl>
+        </FormControl> */}
 
         <FormControl my="2" isInvalid={errors.date}>
           <FormLabel color="#515F7E" htmlFor="date">

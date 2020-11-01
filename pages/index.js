@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import Menu from "../components/Menu";
 import Header from "../components/Header";
 import Banner from "../components/Banner";

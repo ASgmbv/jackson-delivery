@@ -1,20 +1,18 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { Button, Text, Flex, Stack, StackDivider } from "@chakra-ui/core";
 import useCartStore from "../utils/hooks/useCartStore";
 import CartItem from "./CartItem";
 import Link from "next/link";
-import { SearchIcon, DeleteIcon } from "@chakra-ui/icons";
-import { calculateExtra } from "../utils/calculateExtra";
+import { SearchIcon } from "@chakra-ui/icons";
 
 const itemsSelector = (state) => state.items;
 
 const Cart = () => {
   const items = useCartStore(itemsSelector);
 
-  // wrap in useCallback for performance
   const temp = items.reduce((sum, item) => {
-    const { quantity, price } = item;
-
-    return sum + quantity * (price + calculateExtra(item));
+    const { quantity, totalPrice } = item;
+    return sum + quantity * totalPrice;
   }, 0);
 
   const totalSum = Math.round(temp * 100) / 100;

@@ -14,7 +14,7 @@ export const sendEmail = async ({ items, data, prices }) => {
   text += "----\n";
   items.forEach((element) => {
     for (const [key, value] of Object.entries(element)) {
-      if (key !== "image" && key !== "type") {
+      if (key !== "image" && key !== "type" && key !== "totalPrice") {
         text += `${key}: ${value}\n`;
       }
     }
@@ -26,23 +26,13 @@ export const sendEmail = async ({ items, data, prices }) => {
     text += `${key}: $ ${value}\n`;
   }
 
-  await sgMail.send({
-    to: "tianguberabdurahman@gmail.com", // "tianguberabdurahman@gmail.com
+  let res = await sgMail.send({
+    // to: "tianguberabdurahman@gmail.com", // "tianguberabdurahman@gmail.com
+    to: "alimbeksagymbaev@gmail.com",
     from: "jacksononlineorder@gmail.com",
     subject: "New Jackson Online Delivery Order",
     text,
   });
-
-  let res;
-
-  if (data.email) {
-    res = await sgMail.send({
-      to: data.email,
-      from: "jacksononlineorder@gmail.com",
-      subject: "New Jackson Online Delivery Order",
-      text,
-    });
-  }
 
   return res;
 };

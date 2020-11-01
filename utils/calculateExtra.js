@@ -1,3 +1,4 @@
+/* eslint-disable no-fallthrough */
 export function calculateExtra(item) {
   let extra = 0;
 

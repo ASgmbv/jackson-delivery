@@ -1,4 +1,6 @@
-import { Heading, Grid, Flex, Container, Stack } from "@chakra-ui/core";
+/* eslint-disable react/prop-types */
+/* eslint-disable react/react-in-jsx-scope */
+import { Heading, Grid, Flex, Stack } from "@chakra-ui/core";
 
 import MenuItem from "./MenuItem";
 

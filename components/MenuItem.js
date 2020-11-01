@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/react-in-jsx-scope */
+
 import {
   Heading,
   Text,
   Flex,
-  Image,
   Button,
   useDisclosure,
   Modal,
@@ -12,9 +14,7 @@ import {
   ModalBody,
   ModalFooter,
   ModalCloseButton,
-  Divider,
 } from "@chakra-ui/core";
-import Dish from "../assets/icons/Dish";
 import Details from "../components/Details/index.js";
 import NextImage from "next/image";
 

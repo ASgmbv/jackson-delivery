@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/react-in-jsx-scope */
 import { Text, Flex, IconButton } from "@chakra-ui/core";
 import useCartStore from "../utils/hooks/useCartStore";
 import { CloseIcon } from "@chakra-ui/icons";
 import Counter from "./Counter";
-import { calculateExtra } from "../utils/calculateExtra";
 
 const removeItemSelector = (state) => state.removeItem;
 const addItemSelector = (state) => state.addItem;
@@ -13,14 +14,10 @@ const CartItem = ({ data }) => {
   const addItem = useCartStore(addItemSelector);
   const clearItem = useCartStore(clearItemSelector);
 
-  const totalPrice =
-    Math.round(data.quantity * (data.price + calculateExtra(data)) * 100) / 100;
-
   return (
     <Flex sx={{ flexDirection: "column" }}>
       <Flex sx={{ alignItems: "center", justifyContent: "space-between" }}>
         <Text fontWeight="500">{data.title}</Text>
-        {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
         <IconButton
           icon={<CloseIcon boxSize="3" />}
           onClick={() => {
@@ -37,7 +34,9 @@ const CartItem = ({ data }) => {
           onInc={() => addItem(data)}
         />
 
-        <Text fontWeight="500">{"$ " + totalPrice}</Text>
+        <Text fontWeight="500">
+          {"$ " + Math.round(data.quantity * data.totalPrice * 100) / 100}
+        </Text>
       </Flex>
     </Flex>
   );

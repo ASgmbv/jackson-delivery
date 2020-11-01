@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { Flex, Image, Heading, Stack, Text, IconButton } from "@chakra-ui/core";
 import Counter from "../Counter";
 import { CloseIcon } from "@chakra-ui/icons";
