@@ -34,9 +34,7 @@ import Layout from "../components/Layout";
 
 const itemsSelector = (state) => state.items;
 
-const promise = loadStripe("pk_test_bXqaZTFq5jzyuGVIgzPA9Drp00FnXivkFg");
-
-// pk_test_bXqaZTFq5jzyuGVIgzPA9Drp00FnXivkFg
+const promise = loadStripe("pk_live_4oQ0np4hyAvdGF9rbAFFyLcX009WIELd7g");
 
 const Checkout = () => {
   const items = useCartStore(itemsSelector);
