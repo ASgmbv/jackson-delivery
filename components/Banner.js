@@ -23,7 +23,7 @@ const Banner = () => {
         // fontWeight="500"
         mb="10"
       >
-        Place you Special order in Advance. Pick yp and Delivery order required
+        Place you Special order in Advance. Pick Up and Delivery order required
         at least 30 - 45 minutes. Hoping for your understanding!
       </Text>
     </Flex>

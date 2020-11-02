@@ -110,10 +110,6 @@ export const sections = [
                 extra: 0,
               },
               {
-                value: "Salmon",
-                extra: 0,
-              },
-              {
                 value: "No Meat",
                 extra: 0,
               },
@@ -210,10 +206,6 @@ export const sections = [
               },
               {
                 value: "Deli Ham",
-                extra: 0,
-              },
-              {
-                value: "Salmon",
                 extra: 0,
               },
               {
@@ -381,29 +373,34 @@ export const sections = [
         image: "/food/guacamola-omelette.jpg",
         options: [
           {
-            title: "Would you add meat to your omelette?",
+            title: "Would you like to add some meat in your Omelette?",
             slug: "Meat Type",
             values: [
               {
-                value: "Bacon",
+                value: "No",
                 extra: 1.5,
               },
               {
-                value: "Ham",
+                value: "Diced Bacon",
                 extra: 1.5,
               },
               {
-                value: "Sausage",
+                value: "Diced Ham",
                 extra: 1.5,
               },
               {
-                value: "Turkey",
+                value: "Diced Sausage",
+                extra: 1.5,
+              },
+              {
+                value: "Diced Turkey",
                 extra: 1.5,
               },
             ],
           },
           {
-            title: "Would you substitute guacamola?",
+            title:
+              "Would you like to substitute guacamola for any other vegetables?",
             slug: "Guacamola Substitute",
             values: [
               {
@@ -411,67 +408,72 @@ export const sections = [
                 extra: 0,
               },
               {
-                value: "No Guacamola",
+                value: "No Guacamola - Broccoli",
                 extra: 0,
               },
               {
-                value: "Broccoli",
+                value: "No Guacamola - Fresh Onions",
                 extra: 0,
               },
               {
-                value: "Fresh Onions",
+                value: "No Guacamola - Fresh Spinach",
                 extra: 0,
               },
               {
-                value: "Fresh Spinach",
+                value: "No Guacamola - Sauteed Spinach",
                 extra: 0,
               },
               {
-                value: "Sauteed Spinach",
+                value: "No Guacamola - Green Peppers",
                 extra: 0,
               },
               {
-                value: "Green Peppers",
+                value: "No Guacamola - Green Chillies",
                 extra: 0,
               },
               {
-                value: "Green Chillies",
+                value: "No Guacamola at all",
                 extra: 0,
               },
             ],
           },
           {
-            title: "Hash Browns",
-            slug: "Hash Browns",
+            title: "How would you like your Hash Brown to be cooked?",
+            slug: "Hash Brown",
             values: [
               {
-                value: "No Hash Browns",
+                value: "Crispy Hash Brown",
                 extra: 0,
               },
               {
-                value: "Crispy Hash Browns",
+                value: "Regular Hash Brown",
                 extra: 0,
               },
             ],
           },
           {
-            title: "What type of bread would you like with your order?",
+            title:
+              "Would you like to substitute your O.S.M (Oats,Sunflower Seeds and Millet) Bread for any other type for additional charge?",
             slug: "Bread Type",
             values: [
               {
                 value: "Cinnamon Bread",
-                extra: 0,
+                extra: 1.25,
               },
               {
                 value: "Cinnamon Raisin Bread",
-                extra: 0,
+                extra: 1.25,
+              },
+              {
+                value: "Butter Croissant",
+                extra: 1.75,
               },
               {
                 value: "White Bread",
-                extra: 0,
+                extra: 1.25,
               },
               {
-                value: "OSM Bread",
+                value: "Rustic Rye Bread",
                 extra: 0,
               },
             ],
@@ -486,7 +488,34 @@ export const sections = [
         image: "/food/vegetarian-omelette.jpg",
         options: [
           {
-            title: "Would you substitute Swiss cheese?",
+            title: "Would you like to add some meat in your Omelette?",
+            slug: "Meat Type",
+            values: [
+              {
+                value: "No",
+                extra: 1.5,
+              },
+              {
+                value: "Diced Bacon",
+                extra: 1.5,
+              },
+              {
+                value: "Diced Ham",
+                extra: 1.5,
+              },
+              {
+                value: "Diced Sausage",
+                extra: 1.5,
+              },
+              {
+                value: "Diced Turkey",
+                extra: 1.5,
+              },
+            ],
+          },
+          {
+            title:
+              "Would you like to substitute Swiss cheese for another type ?",
             slug: "Cheese Type",
             values: [
               {
@@ -494,85 +523,22 @@ export const sections = [
                 extra: 0,
               },
               {
-                value: "No Swiss",
+                value: "No Swiss cheese - substitute for Cheddar cheese",
                 extra: 0,
               },
               {
-                value: "Cheddar Cheese",
+                value: "No Swiss cheese - substitute for Pepper Jack cheese",
                 extra: 0,
               },
               {
-                value: "Pepper Jack Cheese",
+                value: "No Cheese at all",
                 extra: 0,
               },
             ],
           },
           {
-            title: "Would you add meat to your omelette?",
-            slug: "Meat Type",
-            values: [
-              {
-                value: "No Meat",
-                extra: 0,
-              },
-              {
-                value: "Diced Bacon",
-                extra: 0,
-              },
-              {
-                value: "Diced Ham",
-                extra: 0,
-              },
-              {
-                value: "Diced Sausage",
-                extra: 0,
-              },
-              {
-                value: "Diced Turkey",
-                extra: 0,
-              },
-            ],
-          },
-          {
-            title: "Would you substitute onions?",
-            slug: "Onions Substitute",
-            values: [
-              {
-                value: "No",
-                extra: 0,
-              },
-              {
-                value: "No Onions",
-                extra: 0,
-              },
-              {
-                value: "Brocolli",
-                extra: 0,
-              },
-              {
-                value: "Fresh Spinach",
-                extra: 0,
-              },
-              {
-                value: "Sauteed Spinach",
-                extra: 0,
-              },
-              {
-                value: "Jalapenos",
-                extra: 0,
-              },
-              {
-                value: "Green Pepper",
-                extra: 0,
-              },
-              {
-                value: "Green Chilies",
-                extra: 0,
-              },
-            ],
-          },
-          {
-            title: "Would you substitute tomatoes?",
+            title:
+              "Would you like to substitute tomatoes for any other vegetables?",
             slug: "Tomatoes Substitute",
             values: [
               {
@@ -580,37 +546,77 @@ export const sections = [
                 extra: 0,
               },
               {
-                value: "No Tomatoes",
+                value: "No Tomatoes - substitute for Broccoli",
                 extra: 0,
               },
               {
-                value: "Brocolli",
+                value: "No Tomatoes - substitute for Green Peppers",
                 extra: 0,
               },
               {
-                value: "Fresh Spinach",
+                value: "No Tomatoes - substitute for Green Chilies",
                 extra: 0,
               },
               {
-                value: "Sauteed Spinach",
+                value: "No Tomatoes - substitute for Fresh Spinach",
                 extra: 0,
               },
               {
-                value: "Jalapenos",
+                value: "No Tomatoes - substitute for Sautéed Spinach",
                 extra: 0,
               },
               {
-                value: "Green Pepper",
+                value: "No Tomatoes - substitute for Jalapeños",
                 extra: 0,
               },
               {
-                value: "Green Chilies",
+                value: "No Tomatoes at all",
                 extra: 0,
               },
             ],
           },
           {
-            title: "Would you substitute mushrooms?",
+            title:
+              "Would you like to substitute onions for any other vegetables?",
+            slug: "Onions Substitute",
+            values: [
+              {
+                value: "No",
+                extra: 0,
+              },
+              {
+                value: "No Onions - substitute for Broccoli",
+                extra: 0,
+              },
+              {
+                value: "No Onions - substitute Green Peppers",
+                extra: 0,
+              },
+              {
+                value: "No Onions - substitute for Green Chilies",
+                extra: 0,
+              },
+              {
+                value: "No Onions - substitute for Fresh Spinach",
+                extra: 0,
+              },
+              {
+                value: "No Onions - substitute for Sautéed Spinach",
+                extra: 0,
+              },
+              {
+                value: "No Onions - substitute for Jalapeños",
+                extra: 0,
+              },
+              {
+                value: "No Onions at all ",
+                extra: 0,
+              },
+            ],
+          },
+          {
+            title:
+              "Would you like to substitute Mushrooms for any other vegetables?",
             slug: "Mushrooms Substitute",
             values: [
               {
@@ -618,67 +624,72 @@ export const sections = [
                 extra: 0,
               },
               {
-                value: "No Mushrooms",
+                value: "No Mushrooms - substitute for Broccoli",
                 extra: 0,
               },
               {
-                value: "Brocolli",
+                value: "No Mushrooms - substitute for Green Peppers",
                 extra: 0,
               },
               {
-                value: "Fresh Spinach",
+                value: "No Mushrooms - substitute for Green Chilies",
                 extra: 0,
               },
               {
-                value: "Sauteed Spinach",
+                value: "No Mushrooms- substitute for Fresh Spinach",
                 extra: 0,
               },
               {
-                value: "Jalapenos",
+                value: "No Mushrooms- substitute for Sautéed Spinach",
                 extra: 0,
               },
               {
-                value: "Green Pepper",
+                value: "No Mushrooms- substitute for Jalapeños",
                 extra: 0,
               },
               {
-                value: "Green Chilies",
+                value: "No Mushrooms at all",
                 extra: 0,
               },
             ],
           },
           {
-            title: "Hash Browns",
-            slug: "Hash Browns",
+            title: "How would you like your Hash Brown to be cooked?",
+            slug: "Hash Brown",
             values: [
               {
-                value: "No Hash Browns",
+                value: "Crispy Hash Brown",
                 extra: 0,
               },
               {
-                value: "Crispy Hash Browns",
+                value: "Regular Hash Brown",
                 extra: 0,
               },
             ],
           },
           {
-            title: "What type of bread would you like with your order?",
+            title:
+              "Would you like to substitute your O.S.M (Oats,Sunflower Seeds and Millet) Bread for any other type for additional charge?",
             slug: "Bread Type",
             values: [
               {
                 value: "Cinnamon Bread",
-                extra: 0,
+                extra: 1.25,
               },
               {
                 value: "Cinnamon Raisin Bread",
-                extra: 0,
+                extra: 1.25,
+              },
+              {
+                value: "Butter Croissant",
+                extra: 1.75,
               },
               {
                 value: "White Bread",
-                extra: 0,
+                extra: 1.25,
               },
               {
-                value: "OSM Bread",
+                value: "Rustic Rye Bread",
                 extra: 0,
               },
             ],
@@ -693,7 +704,7 @@ export const sections = [
         image: "/food/omelette.jpg",
         options: [
           {
-            title: "Would you substitute cheddar?",
+            title: "Would you like to substitute cheddar to any other cheese?",
             slug: "Cheddar Substitute",
             values: [
               {
@@ -701,17 +712,17 @@ export const sections = [
                 extra: 0,
               },
               {
-                value: "Swiss",
+                value: "No Cheddar - substitute for Swiss cheese",
                 extra: 0,
               },
               {
-                value: "Pepperjack",
+                value: "No Cheddar - substitute for Pepper Jack cheese",
                 extra: 0,
               },
             ],
           },
           {
-            title: "Would you substitute bacon?",
+            title: "Would you like to substitute bacon?",
             slug: "Bacon Substitute",
             values: [
               {
@@ -719,89 +730,95 @@ export const sections = [
                 extra: 0,
               },
               {
-                value: "Ham",
+                value: "No bacon - substitute for Ham",
                 extra: 0,
               },
               {
-                value: "Sausage",
+                value: "No bacon - substitute for Sausage",
                 extra: 0,
               },
               {
-                value: "Turkey",
+                value: "No bacon - substitute for Turkey",
                 extra: 0,
               },
             ],
           },
           {
-            title: "Would you substitute tomato?",
-            slug: "Tomato Substitute",
+            title:
+              "Would you like to substitute tomatoes for any other vegetables?",
+            slug: "Tomatoes Substitute",
             values: [
               {
                 value: "No",
                 extra: 0,
               },
               {
-                value: "No Tomato",
+                value: "No Tomatoes - substitute for Broccoli",
                 extra: 0,
               },
               {
-                value: "Brocolli",
+                value: "No Tomatoes - substitute for Green Peppers",
                 extra: 0,
               },
               {
-                value: "Fresh Spinach",
+                value: "No Tomatoes - substitute for Green Chilies",
                 extra: 0,
               },
               {
-                value: "Sauteed Spinach",
+                value: "No Tomatoes - substitute for Fresh Spinach",
                 extra: 0,
               },
               {
-                value: "Jalapenos",
+                value: "No Tomatoes - substitute for Sautéed Spinach",
                 extra: 0,
               },
               {
-                value: "Green Pepper",
+                value: "No Tomatoes - substitute for Jalapeños",
                 extra: 0,
               },
               {
-                value: "Green Chilies",
+                value: "No Tomatoes at all",
                 extra: 0,
               },
             ],
           },
           {
-            title: "Hash Browns",
-            slug: "Hash Browns",
+            title: "How would you like your Hash Brown to be cooked?",
+            slug: "Hash Brown",
             values: [
               {
-                value: "No Hash Browns",
+                value: "Crispy Hash Brown",
                 extra: 0,
               },
               {
-                value: "Crispy Hash Browns",
+                value: "Regular Hash Brown",
                 extra: 0,
               },
             ],
           },
           {
-            title: "What type of bread would you like with your order?",
+            title:
+              "Would you like to substitute your O.S.M (Oats,Sunflower Seeds and Millet) Bread for any other type for additional charge?",
             slug: "Bread Type",
             values: [
               {
                 value: "Cinnamon Bread",
-                extra: 0,
+                extra: 1.25,
               },
               {
                 value: "Cinnamon Raisin Bread",
-                extra: 0,
+                extra: 1.25,
+              },
+              {
+                value: "Butter Croissant",
+                extra: 1.75,
               },
               {
                 value: "White Bread",
-                extra: 0,
+                extra: 1.25,
               },
               {
-                value: "OSM Bread",
+                value: "Rustic Rye Bread",
                 extra: 0,
               },
             ],
