@@ -1,9 +1,12 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
 import Menu from "../components/Menu";
 import Banner from "../components/Banner";
 import { sections } from "../assets/data/data";
 import { Box } from "@chakra-ui/core";
 import Layout from "../components/Layout";
+// import { Client } from "../prismic-configuration";
+// import Prismic from "prismic-javascript";
 
 export default function Home() {
   return (
@@ -16,13 +19,15 @@ export default function Home() {
 }
 
 // export async function getStaticProps() {
-//   const phones = await Client().query(
-//     Prismic.Predicates.at("document.type", "phone")
+//   const sections = await Client().query(
+//     Prismic.Predicates.at("document.type", "section")
 //   );
+
+//   console.log("sections:", sections);
 
 //   return {
 //     props: {
-//       phones: phones ? phones.results : [],
+//       sections: sections ? sections.results : [],
 //     },
 //     revalidate: 1,
 //   };
