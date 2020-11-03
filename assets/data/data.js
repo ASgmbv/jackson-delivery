@@ -362,12 +362,172 @@ export const sections = [
       },
     ],
   },
+
+  {
+    title: "Pies Whole",
+    items: [
+      {
+        title: "Raspberry Pie",
+        description: "Whole Pie",
+        price: 26,
+        image: "/food/strawberry-pie.jpeg",
+        options: [],
+      },
+      {
+        title: "Strawberry Pie",
+        description: "Whole Pie",
+        price: 26,
+        image: "/food/strawberry-pie-whole.webp",
+        options: [],
+      },
+      {
+        title: "Blueberry Pie",
+        description: "Whole Pie",
+        price: 26,
+        image: "/food/berry_pie.JPG",
+        options: [],
+      },
+      {
+        title: "Apple Pie",
+        description: "Whole Pie",
+        price: 26,
+        image: "/food/apple_pie.JPG",
+        options: [],
+      },
+      {
+        title: "Pecan Pie",
+        description: "Whole Pie",
+        price: 28.5,
+        image: "/food/pecan_pie.jpg",
+        options: [],
+      },
+      {
+        title: "Cherry Pie",
+        description: "Whole Pie",
+        price: 26,
+        image: "/food/cherry_pie.JPG",
+        options: [],
+      },
+      {
+        title: "Peach Pie",
+        description: "Whole Pie",
+        price: 26,
+        image: "/food/peach-pie.jpg",
+        options: [],
+      },
+      {
+        title: "Pumpkin Pie",
+        description: "Whole Pie",
+        price: 21,
+        image: "/food/pumpkin-pie.webp",
+        options: [],
+      },
+      {
+        title: "Chocolate Pecan Pie",
+        description: "Whole Pie",
+        price: 28.5,
+        image: "/food/chocolate-pecan-pie.jpg",
+        options: [],
+      },
+      {
+        title: "Carrot Cake",
+        description: "Whole Pie",
+        price: 45.5,
+        image: "/food/carrot_cake.JPG",
+        options: [],
+      },
+    ],
+  },
+
+  {
+    title: "Pies Slice",
+    items: [
+      {
+        title: "Raspberry Pie",
+        description: "Pie Slice",
+        price: 5.25,
+        image: "/food/raspberry-pie-slice.jpg",
+        options: [],
+      },
+      {
+        title: "Strawberry Pie",
+        description: "Pie Slice",
+        price: 5.25,
+        image: "/food/strawberry-pie-whole.webp",
+        options: [],
+      },
+      {
+        title: "Blueberry Pie",
+        description: "Pie Slice",
+        price: 5.25,
+        image: "/food/berry_pie.JPG",
+        options: [],
+      },
+      {
+        title: "Apple Pie",
+        description: "Pie Slice",
+        price: 5.25,
+        image: "/food/apple_pie.JPG",
+        options: [],
+      },
+      {
+        title: "Pecan Pie",
+        description: "Pie Slice",
+        price: 6.95,
+        image: "/food/pecan_pie.jpg",
+        options: [],
+      },
+      {
+        title: "Cherry Pie",
+        description: "Pie Slice",
+        price: 5.25,
+        image: "/food/cherry_pie.JPG",
+        options: [],
+      },
+      {
+        title: "Peach Pie",
+        description: "Pie Slice",
+        price: 5.25,
+        image: "/food/peach-pie.jpg",
+        options: [],
+      },
+      {
+        title: "Pumpkin Pie",
+        description: "Pie Slice",
+        price: 4.25,
+        image: "/food/pumpkin-pie.webp",
+        options: [],
+      },
+      {
+        title: "Chocolate Pecan Pie",
+        description: "Pie Slice",
+        price: 6.95,
+        image: "/food/chocolate-pecan-pie.jpg",
+        options: [],
+      },
+      {
+        title: "Carrot Cake",
+        description: "Pie Slice",
+        price: 6.75,
+        image: "/food/carrot_cake.jpg",
+        options: [],
+      },
+      {
+        title: "Chocolate Cake",
+        description: "Pie Slice",
+        price: 6.75,
+        image: "/food/carrot_cake.jpg",
+        options: [],
+      },
+    ],
+  },
+
   {
     title: "Breakfast",
     items: [
       {
         title: "Guacamola Omelette",
-        descriptin:
+        description:
           "Fresh guacamola, sauteed mushrooms, diced tomatoes and Swiss cheese",
         price: 14.25,
         image: "/food/guacamola-omelette.jpg",
