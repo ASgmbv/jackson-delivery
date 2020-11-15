@@ -36,7 +36,13 @@ const MenuItem = (props) => {
         cursor: "pointer",
       }}
     >
-      <ItemImage title={title} image={image} />
+      <NextImage
+        alt={title}
+        src={image}
+        width="70"
+        height="70"
+        layout="fixed"
+      />
 
       <Heading as="h3" fontSize="lg" fontWeight="500" my="2" isTruncated>
         {title}
@@ -88,8 +94,8 @@ const MenuItem = (props) => {
   );
 };
 
-const ItemImage = ({ title, image }) => {
-  return <NextImage alt={title} src={image} width="70" height="70" />;
-};
+// const ItemImage = ({ title, image }) => {
+//   return <NextImage alt={title} src={image} width="70" height="70" />;
+// };
 
 export default MenuItem;
