@@ -22,7 +22,7 @@ import {
   useRadio,
   useRadioGroup,
   HStack,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import useCartStore from "../utils/hooks/useCartStore";
 import CheckoutItem from "../components/CheckoutItem/index";
 import { useState } from "react";

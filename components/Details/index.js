@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { useToast, FormLabel, RadioGroup, Radio, Stack } from "@chakra-ui/core";
+import { useToast, FormLabel, RadioGroup, Radio, Stack } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import useCartStore from "../../utils/hooks/useCartStore";
 

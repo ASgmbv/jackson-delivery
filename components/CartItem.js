@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
-import { Text, Flex, IconButton } from "@chakra-ui/core";
+import { Text, Flex, IconButton } from "@chakra-ui/react";
 import useCartStore from "../utils/hooks/useCartStore";
 import { CloseIcon } from "@chakra-ui/icons";
 import Counter from "./Counter";

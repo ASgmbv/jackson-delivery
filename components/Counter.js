@@ -1,4 +1,4 @@
-import { HStack, Button, Text } from "@chakra-ui/core";
+import { HStack, Button, Text } from "@chakra-ui/react";
 
 const Counter = ({ onDec, onInc, value, ...props }) => {
   return (

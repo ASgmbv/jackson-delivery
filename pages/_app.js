@@ -1,4 +1,4 @@
-import { ChakraProvider } from "@chakra-ui/core";
+import { ChakraProvider } from "@chakra-ui/react";
 import customTheme from "../theme";
 import Head from "next/head";
 import "../styles/globals.css";

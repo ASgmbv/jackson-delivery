@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { Button, Text, Flex, Stack, StackDivider } from "@chakra-ui/core";
+import { Button, Text, Flex, Stack, StackDivider } from "@chakra-ui/react";
 import useCartStore from "../utils/hooks/useCartStore";
 import CartItem from "./CartItem";
 import Link from "next/link";

@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable react/prop-types */
-import { Container, Box } from "@chakra-ui/core";
+import { Container, Box } from "@chakra-ui/react";
 import Header from "../components/Header";
 import SEO from "../components/seo";
 

@@ -10,7 +10,7 @@ import {
   Text,
   Flex,
   chakra,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import useCartStore from "../utils/hooks/useCartStore";
 import Cart from "./Cart";
 import Link from "next/link";

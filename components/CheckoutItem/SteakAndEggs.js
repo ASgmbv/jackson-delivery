@@ -1,4 +1,4 @@
-import { Flex, Image, Stack, Text, IconButton, Heading } from "@chakra-ui/core";
+import { Flex, Image, Stack, Text, IconButton, Heading } from "@chakra-ui/react";
 import Counter from "../Counter";
 import { CloseIcon } from "@chakra-ui/icons";
 import useCartStore from "../../utils/hooks/useCartStore";

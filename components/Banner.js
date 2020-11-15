@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { Flex, Text, Heading } from "@chakra-ui/core";
+import { Flex, Text, Heading } from "@chakra-ui/react";
 
 const Banner = () => {
   return (

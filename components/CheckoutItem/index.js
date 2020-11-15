@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
-import { Flex, IconButton, Stack, Heading, Text } from "@chakra-ui/core";
+import { Flex, IconButton, Stack, Heading, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import useCartStore from "../../utils/hooks/useCartStore";
 import { CloseIcon } from "@chakra-ui/icons";

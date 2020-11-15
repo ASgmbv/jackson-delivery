@@ -11,7 +11,7 @@ import {
   FormLabel,
   FormErrorMessage,
   useToast,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import useCartStore from "../utils/hooks/useCartStore";
 import { useRouter } from "next/router";
@@ -103,9 +103,6 @@ const CheckoutForm = ({ total, isDelivery, order, delivery, tax, tip }) => {
         });
         router.push("/");
       }
-
-      // status === 200 -> good
-      // status === 500 -> bad
     }
   };
 

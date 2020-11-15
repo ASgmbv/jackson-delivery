@@ -14,18 +14,19 @@ import {
   ModalBody,
   ModalFooter,
   ModalCloseButton,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import Details from "../components/Details/index.js";
 import NextImage from "next/image";
 
 const MenuItem = (props) => {
+  // console.log({ props });
   const { isOpen, onOpen, onClose } = useDisclosure();
-
   const {
     title = "",
     description = "",
     price = 0,
     image = "/pizza.png",
+    sliseZone = [],
   } = props;
 
   return (
