@@ -3,7 +3,7 @@ import Prismic from "prismic-javascript";
 // Client method to query documents from the Prismic repo
 export const Client = (req = null) =>
   Prismic.client(
-    process.env.PRISMIC_ENTRY_POINT,
+    "https://jackson-delivery.cdn.prismic.io/api/v2",
     createClientOptions(req, process.env.PRISMIC_ACCESS_TOKEN)
   );
 
