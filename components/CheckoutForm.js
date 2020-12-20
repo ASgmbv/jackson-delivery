@@ -179,17 +179,6 @@ const CheckoutForm = ({ total, isDelivery, order, delivery, tax, tip }) => {
           </FormControl>
         ) : null}
 
-        {/* TODO check email format */}
-        {/* <FormControl my="6">
-          <FormLabel color="#515F7E" htmlFor="email">
-            Your email
-          </FormLabel>
-          <Input id="email" name="email" type="text" ref={register} />
-          <FormHelperText>
-            Fill only if you want to receive order details on your email
-          </FormHelperText>
-        </FormControl> */}
-
         <FormControl my="2" isInvalid={errors.date}>
           <FormLabel color="#515F7E" htmlFor="date">
             Date

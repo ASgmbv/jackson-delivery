@@ -68,7 +68,7 @@ const Checkout = () => {
         </Flex>
       ) : (
         <>
-          <Heading as="h2" fontSize="2xl" fontWeight="600" py="6">
+          <Heading as="h2" size="xl" fontWeight="600" py="6">
             Cart
           </Heading>
 

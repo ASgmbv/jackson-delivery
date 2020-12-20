@@ -19,8 +19,69 @@ const CheckoutItem = (props) => {
 
   return (
     <Flex flexDir="column">
+      <Flex justifyContent="space-between" w="full" alignItems="center">
+        <Heading as="h3" size="md" fontWeight="500" color="orange.500">
+          {title}
+        </Heading>
+        <IconButton
+          onClick={() => {
+            clearItem(props);
+          }}
+          icon={<CloseIcon />}
+          alignSelf="flex-start"
+        />
+      </Flex>
+      {description && (
+        <Text lineHeight="20px" color="gray.500" my="4" letterSpacing="wide">
+          {description}
+        </Text>
+      )}
+
+      {Object.entries(props).map((item, index) => {
+        let t = item[0];
+        if (
+          t === "image" ||
+          t === "description" ||
+          t === "quantity" ||
+          t === "type" ||
+          t === "title" ||
+          t === "totalPrice"
+        ) {
+          return;
+        }
+
+        return (
+          <Text color="gray.500" key={"text-item-" + index} mb="2">
+            {item[0]}:{" "}
+            <Text as="span" color="black" color="green.500">
+              {item[1]}
+            </Text>
+          </Text>
+        );
+      })}
+
+      <Flex justifyContent="space-between" mt="4">
+        <Counter
+          value={quantity}
+          onDec={() => {
+            removeItem(props);
+          }}
+          onInc={() => {
+            addItem(props);
+          }}
+          alignSelf="center"
+        />
+        <Heading size="md">
+          {"$ " + Math.round(quantity * totalPrice * 100) / 100}
+        </Heading>
+      </Flex>
+    </Flex>
+  );
+
+  return (
+    <Flex flexDir="column">
       <Flex justifyContent="space-between">
-        <Image src={image} width="70" height="70" alt={title} />
+        {/* <Image src={image} width="70" height="70" alt={title} /> */}
         <IconButton
           onClick={() => {
             clearItem(props);
@@ -51,11 +112,6 @@ const CheckoutItem = (props) => {
             return;
           }
 
-          // let temp = options.find((option) => option.slug === item[0]);
-          // temp = temp?.values.find(
-          //   (optionItem) => optionItem.value === item[1]
-          // );
-
           return (
             <Text fontSize="sm" color="gray.500" key={"text-item-" + index}>
               {item[0]}:
@@ -78,30 +134,12 @@ const CheckoutItem = (props) => {
           }}
           alignSelf="center"
         />
-        <Text
-          alignSelf="flex-start"
-          fontWeight="500"
-          width="80px"
-          textAlign="center"
-        >
+        <Heading size="md">
           {"$ " + Math.round(quantity * totalPrice * 100) / 100}
-        </Text>
+        </Heading>
       </Flex>
     </Flex>
   );
 };
 
 export default CheckoutItem;
-
-// switch (props.type) {
-//   case "classics-regular":
-//     return <ClassicsRegular {...props} />;
-//   case "classics-signature":
-//     return <ClassicsSignature {...props} />;
-//   case "classics-biscuits-gravy":
-//     return <BiscuitsAndGravy {...props} />;
-//   case "classics-steak-eggs":
-//     return <SteakAndEggs {...props} />;
-//   default:
-//     return <>Empty</>;
-// }
