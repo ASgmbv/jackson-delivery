@@ -36,8 +36,8 @@ export async function getStaticProps() {
   let menu = [];
   let tags = [];
 
-  console.log("size:", products1.results.length);
-  console.log("size:", products2.results.length);
+  // console.log("size:", products1.results.length);
+  // console.log("size:", products2.results.length);
 
   products1.results.map((product) => {
     let tag = product.tags[0];

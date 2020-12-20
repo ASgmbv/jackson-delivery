@@ -34,6 +34,7 @@ const MenuItem = (props) => {
       flexDir={["column"]}
       flex="1"
       minW="300px"
+      maxW="400px"
       mx="4"
       mb="16"
       sx={{
@@ -48,20 +49,27 @@ const MenuItem = (props) => {
         className="nextimage"
       />
 
-      <Heading as="h3" size="lg" fontWeight="500" my="2">
+      <Heading as="h3" size="lg" fontWeight="500" my="2" color="orange.500">
         {title}
       </Heading>
 
-      <Text fontSize="md" lineHeight="20px" color="gray.500" mb="4">
+      <Text
+        fontSize="md"
+        color="gray.500"
+        mb="4"
+        letterSpacing="wide"
+        lineHeight="base"
+      >
         {description}
       </Text>
 
       <Flex justifyContent="space-between" alignItems="center" mt="auto">
-        {/* <Text as="span" fontSize="xl" fontWeight="500" fontFamily="Montserrat">
-          $ {price}
-        </Text> */}
-
-        <Heading size="lg" fontWeight="600" fontFamily="Montserrat">
+        <Heading
+          size="lg"
+          fontWeight="600"
+          fontFamily="Montserrat"
+          // color="orange.500"
+        >
           $ {price}
         </Heading>
 
