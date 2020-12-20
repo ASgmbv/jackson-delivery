@@ -74,8 +74,9 @@ const MenuItem = (props) => {
 
         <Button
           onClick={onOpen}
-          // variant="outline"
           colorScheme="orange"
+          borderRadius="0"
+          size="lg"
         >
           Select
         </Button>
