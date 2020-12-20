@@ -60,7 +60,7 @@ const Checkout = () => {
   const total = Math.round((order + tax + delivery + tip) * 100) / 100;
 
   return (
-    <Layout title="checkout" withHeader={false} maxW="md">
+    <Layout title="checkout" withHeader={false} maxW="2xl">
       {items.length === 0 ? (
         <Flex flexDir="column" alignItems="center" py="6">
           <Text>Card is empty</Text>
