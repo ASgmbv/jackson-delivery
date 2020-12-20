@@ -34,7 +34,7 @@ const Header = ({ isWithCart = true }) => {
       bg="white"
     >
       <Container
-        maxW="xl"
+        maxW="7xl"
         height="4.5rem"
         mx="auto"
         d="flex"

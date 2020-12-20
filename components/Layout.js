@@ -9,7 +9,7 @@ const Layout = ({
   description,
   children,
   withHeader = true,
-  maxW = "xl",
+  maxW = "7xl",
 }) => {
   return (
     <>

@@ -57,9 +57,13 @@ const MenuItem = (props) => {
       </Text>
 
       <Flex justifyContent="space-between" alignItems="center" mt="auto">
-        <Text as="span" fontSize="xl" fontWeight="500" fontFamily="Montserrat">
+        {/* <Text as="span" fontSize="xl" fontWeight="500" fontFamily="Montserrat">
           $ {price}
-        </Text>
+        </Text> */}
+
+        <Heading size="lg" fontWeight="600" fontFamily="Montserrat">
+          $ {price}
+        </Heading>
 
         <Button
           onClick={onOpen}

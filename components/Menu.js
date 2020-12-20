@@ -24,7 +24,6 @@ const SubMenu = ({ section }) => {
         size="xl"
         maxW="500px"
         fontWeight="600"
-        // my="6"
         mb="10"
         color="green.600"
       >
