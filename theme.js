@@ -26,8 +26,8 @@ const customTheme = extendTheme({
     },
   },
   fonts: {
-    body: "Roboto, sans-serif",
-    heading: "Montserrat, sans-serif",
+    body: "Poppins, sans-serif",
+    heading: "Poppins, sans-serif",
   },
   colors: {
     primary: {

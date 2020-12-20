@@ -47,7 +47,6 @@ const Header = ({ isWithCart = true }) => {
               <Text
                 fontSize="2xl"
                 fontWeight="bold"
-                fontFamily="Montserrat"
                 mx={3}
                 display={["none", null, "block"]}
               >
@@ -148,7 +147,6 @@ const H = ({ isWithCart = true }) => {
               <Text
                 fontSize="2xl"
                 fontWeight="bold"
-                fontFamily="Montserrat"
                 mx="3"
                 display={["none", null, "block"]}
               >

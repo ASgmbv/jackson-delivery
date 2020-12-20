@@ -67,7 +67,6 @@ const MenuItem = (props) => {
         <Heading
           size="lg"
           fontWeight="600"
-          fontFamily="Montserrat"
           // color="orange.500"
         >
           $ {price}
