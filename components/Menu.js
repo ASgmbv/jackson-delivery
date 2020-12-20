@@ -23,7 +23,37 @@ const SubMenu = ({ section }) => {
         {title.toUpperCase()}
       </Heading>
 
-      <Grid
+      <Flex flexWrap="wrap">
+        {items.map((item, index) => {
+          let options = item.data.body.map((e) => {
+            if (e.slice_type === "option") {
+              return {
+                title: RichText.asText(e.primary.option_title),
+                slug: RichText.asText(e.primary.option_slug),
+                values: e.items.map((e) => {
+                  return {
+                    value: RichText.asText(e.option_name),
+                    extra: e.option_extra,
+                  };
+                }),
+              };
+            }
+          });
+
+          return (
+            <MenuItem
+              key={"menu-item-" + index}
+              title={RichText.asText(item.data.title)}
+              description={RichText.asText(item.data.description)}
+              price={item.data.price}
+              image={item.data.image.url}
+              options={options}
+            />
+          );
+        })}
+      </Flex>
+
+      {/* <Grid
         templateColumns={["1fr", null, "repeat(4, 1fr)"]}
         gridRowGap="12"
         gridColumnGap="8"
@@ -55,7 +85,7 @@ const SubMenu = ({ section }) => {
             />
           );
         })}
-      </Grid>
+      </Grid> */}
     </Flex>
   );
 };

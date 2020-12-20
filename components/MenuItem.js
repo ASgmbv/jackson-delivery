@@ -14,6 +14,8 @@ import {
   ModalBody,
   ModalFooter,
   ModalCloseButton,
+  Image,
+  AspectRatio,
 } from "@chakra-ui/react";
 import Details from "../components/Details/index.js";
 import NextImage from "next/image";
@@ -32,6 +34,10 @@ const MenuItem = (props) => {
   return (
     <Flex
       flexDir={["column"]}
+      flex="1"
+      minW="300px"
+      mx="4"
+      mb="12"
       sx={{
         cursor: "pointer",
       }}
@@ -39,9 +45,9 @@ const MenuItem = (props) => {
       <NextImage
         alt={title}
         src={image}
-        width="70"
-        height="70"
-        layout="fixed"
+        width="350"
+        height="200"
+        className="nextimage"
       />
 
       <Heading as="h3" fontSize="lg" fontWeight="500" my="2" isTruncated>
@@ -66,7 +72,6 @@ const MenuItem = (props) => {
           onClose={onClose}
           size={"xl"}
           blockScrollOnMount={true}
-          // isCentered
         >
           <ModalOverlay />
           <ModalContent>
@@ -93,9 +98,5 @@ const MenuItem = (props) => {
     </Flex>
   );
 };
-
-// const ItemImage = ({ title, image }) => {
-//   return <NextImage alt={title} src={image} width="70" height="70" />;
-// };
 
 export default MenuItem;

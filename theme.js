@@ -20,6 +20,9 @@ const customTheme = extendTheme({
           boxSizing: "border-box",
         },
       },
+      ".nextimage": {
+        objectFit: "cover",
+      },
     },
   },
   fonts: {

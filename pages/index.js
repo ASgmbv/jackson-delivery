@@ -11,17 +11,15 @@ import Prismic from "prismic-javascript";
 export default function Home({ menu }) {
   return (
     <Layout title="JH Online Orders">
-      {/* <pre>{JSON.stringify(menu, null, 2)}</pre> */}
       <Banner />
-      <Menu
-        sections={
-          menu
-          // sections
-        }
-      />
+      <Menu sections={menu} />
       <Box sx={{ height: "100px" }} />
     </Layout>
   );
+}
+
+{
+  /* <pre>{JSON.stringify(menu, null, 2)}</pre> */
 }
 
 export async function getStaticProps() {
