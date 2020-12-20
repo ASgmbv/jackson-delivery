@@ -7,14 +7,21 @@ import { Box } from "@chakra-ui/react";
 import Layout from "../components/Layout";
 import { Client } from "../prismic-configuration";
 import Prismic from "prismic-javascript";
+import SEO from "../components/seo";
+import Header from "../components/Header";
+import { Container } from "@chakra-ui/react";
 
 export default function Home({ menu }) {
   return (
-    <Layout title="JH Online Orders">
+    <>
+      <SEO title="JH Online Orders" />
+      <Header isWithCart={true} />
       <Banner />
-      <Menu sections={menu} />
+      <Container maxW="7xl" mt="4.5rem">
+        <Menu sections={menu} />
+      </Container>
       <Box sx={{ height: "100px" }} />
-    </Layout>
+    </>
   );
 }
 
