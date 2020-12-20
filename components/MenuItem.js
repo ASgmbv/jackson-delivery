@@ -14,8 +14,6 @@ import {
   ModalBody,
   ModalFooter,
   ModalCloseButton,
-  Image,
-  AspectRatio,
 } from "@chakra-ui/react";
 import Details from "../components/Details/index.js";
 import NextImage from "next/image";
@@ -37,7 +35,7 @@ const MenuItem = (props) => {
       flex="1"
       minW="300px"
       mx="4"
-      mb="12"
+      mb="16"
       sx={{
         cursor: "pointer",
       }}
@@ -50,11 +48,11 @@ const MenuItem = (props) => {
         className="nextimage"
       />
 
-      <Heading as="h3" fontSize="lg" fontWeight="500" my="2" isTruncated>
+      <Heading as="h3" size="lg" fontWeight="500" my="2">
         {title}
       </Heading>
 
-      <Text fontSize="sm" lineHeight="20px" color="gray.500" mb="4">
+      <Text fontSize="md" lineHeight="20px" color="gray.500" mb="4">
         {description}
       </Text>
 
@@ -63,7 +61,11 @@ const MenuItem = (props) => {
           $ {price}
         </Text>
 
-        <Button onClick={onOpen} variant="outline" colorScheme="orange">
+        <Button
+          onClick={onOpen}
+          // variant="outline"
+          colorScheme="orange"
+        >
           Select
         </Button>
 
