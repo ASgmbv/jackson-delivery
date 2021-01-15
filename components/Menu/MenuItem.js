@@ -30,11 +30,67 @@ const MenuItem = (props) => {
   } = props;
 
   return (
-    <Flex flexDirection="column">
-      <span>{title}</span>
-      <Box overflow="hidden">
-        <Text>{description}</Text>
-      </Box>
+    <Flex
+      flexDirection="column"
+      overflow="hidden"
+      boxShadow="lg"
+      p="3"
+      border="1px solid"
+      borderColor="gray.300"
+    >
+      <Flex flex="1" mb="3">
+        <Box width="100px" height="100px" mr="4" position="relative">
+          <NextImage alt={title} src={image} layout="fill" objectFit="cover" />
+        </Box>
+        <Flex flexDirection="column" flex="1" overflow="hidden">
+          <Heading size="xs" mb="2">
+            {title}
+          </Heading>
+          <Box>
+            <Text fontSize="sm">{description}</Text>
+          </Box>
+        </Flex>
+        <Modal
+          isOpen={isOpen}
+          onClose={onClose}
+          size={"xl"}
+          blockScrollOnMount={true}
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader
+              sx={{
+                borderBottom: "1px solid",
+                borderColor: "gray.100",
+              }}
+            >
+              {title}
+              <ModalCloseButton />
+            </ModalHeader>
+            <ModalBody>
+              <Details {...props} onClose={onClose} />
+            </ModalBody>
+            <ModalFooter>
+              <Button colorScheme="orange" type="submit" form="form">
+                Add to cart
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </Flex>
+      <Flex justifyContent="space-between" alignItems="center">
+        <Heading size="sm" fontWeight="600">
+          $ {price}
+        </Heading>
+        <Button
+          onClick={onOpen}
+          colorScheme="orange"
+          borderRadius="0"
+          size="sm"
+        >
+          Select
+        </Button>
+      </Flex>
     </Flex>
   );
 
@@ -75,34 +131,6 @@ const MenuItem = (props) => {
         >
           Select
         </Button>
-
-        <Modal
-          isOpen={isOpen}
-          onClose={onClose}
-          size={"xl"}
-          blockScrollOnMount={true}
-        >
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader
-              sx={{
-                borderBottom: "1px solid",
-                borderColor: "gray.100",
-              }}
-            >
-              {title}
-              <ModalCloseButton />
-            </ModalHeader>
-            <ModalBody>
-              <Details {...props} onClose={onClose} />
-            </ModalBody>
-            <ModalFooter>
-              <Button colorScheme="orange" type="submit" form="form">
-                Add to cart
-              </Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
       </Flex>
     </Flex>
   );

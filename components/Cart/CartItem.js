@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
-import { Text, Flex, IconButton } from "@chakra-ui/react";
+import { Text, Heading, Flex, IconButton } from "@chakra-ui/react";
 import useCartStore from "../../utils/hooks/useCartStore";
 import { CloseIcon } from "@chakra-ui/icons";
 import Counter from "../Counter";
@@ -18,9 +18,9 @@ const CartItem = ({ data }) => {
   return (
     <Flex py="6">
       <Flex flex="1" flexDirection="column">
-        <Text fontWeight="500" mb="4">
+        <Heading size="xs" mb="4">
           {data.title}
-        </Text>
+        </Heading>
         <Counter
           value={data.quantity}
           onDec={() => removeItem(data)}

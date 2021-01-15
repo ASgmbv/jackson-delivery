@@ -26,7 +26,7 @@ const SubMenu = ({ section }) => {
         size="md"
         maxW="500px"
         fontWeight="600"
-        mb="10"
+        mb="4"
         color="green.600"
       >
         {title.toUpperCase()}
