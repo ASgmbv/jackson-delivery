@@ -1,35 +1,29 @@
 import {
   Box,
   Container,
-  Button,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverArrow,
-  PopoverBody,
   Text,
   Flex,
   chakra,
-  useBreakpointValue,
+  useDisclosure,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerBody,
 } from "@chakra-ui/react";
 import useCartStore from "../utils/hooks/useCartStore";
-import Cart from "./Cart";
+import Cart from "./Cart/Cart";
 import Link from "next/link";
 import NextImage from "next/image";
-import Logo from "../assets/icons/Logo";
 import React from "react";
 import Bag from "../assets/icons/Bag";
 
 const itemsSelector = (state) => state.items;
 
-// base: "base",
-// sm: "small",
-// md: "md",
-// lg: "lg",
-// xl: "xl",
-
-const Header = ({ isWithCart = true }) => {
+const Header = () => {
   const items = useCartStore(itemsSelector);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <chakra.header
@@ -42,10 +36,11 @@ const Header = ({ isWithCart = true }) => {
       borderBottom="1px solid"
       borderBottomColor="gray.100"
       bg="white"
+      boxShadow="sm"
     >
       <Container
         maxW="7xl"
-        height={["3rem", null, "4.5rem"]}
+        height={["3rem", null, "4rem"]}
         mx="auto"
         d="flex"
         alignItems="center"
@@ -84,130 +79,43 @@ const Header = ({ isWithCart = true }) => {
           </Text>
         </Flex>
 
-        <Link href="/checkout" passHref>
-          <Box position="relative">
-            <Bag />
-            {items.length > 0 && (
-              <Text
-                as="span"
-                position="absolute"
-                borderRadius="50%"
-                right="0.75rem"
-                top="0.75rem"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                height="1rem"
-                backgroundColor="black"
-                color="white"
-                width="1rem"
-                fontSize="xs"
-              >
-                {items.length}
-              </Text>
-            )}
-          </Box>
-        </Link>
-
-        {/* {isWithCart ? (
-          <Popover placement="bottom">
-            <PopoverTrigger>
-              <Button
-                d={["none", null, "inline-flex"]}
-                rightIcon={
-                  <Box
-                    sx={{
-                      // width: "25px",
-                      textAlign: "start",
-                    }}
-                  >
-                    | {items.length}
-                  </Box>
-                }
-                colorScheme="orange"
-                variant="solid"
-              >
-                Cart
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent>
-              <PopoverArrow />
-              <PopoverBody>
+        <Box position="relative" onClick={onOpen}>
+          <Bag />
+          {items.length > 0 && (
+            <Text
+              as="span"
+              position="absolute"
+              borderRadius="50%"
+              right="0.75rem"
+              top="0.75rem"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              height="1rem"
+              backgroundColor="black"
+              color="white"
+              width="1rem"
+              fontSize="xs"
+            >
+              {items.length}
+            </Text>
+          )}
+        </Box>
+        <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+          <DrawerOverlay>
+            <DrawerContent>
+              <DrawerCloseButton />
+              <DrawerHeader borderBottom="1px solid" borderColor="gray.200">
+                My Cart
+              </DrawerHeader>
+              <DrawerBody>
                 <Cart />
-              </PopoverBody>
-            </PopoverContent>
-          </Popover>
-        ) : null} */}
+              </DrawerBody>
+            </DrawerContent>
+          </DrawerOverlay>
+        </Drawer>
       </Container>
     </chakra.header>
-  );
-};
-
-const H = ({ isWithCart = true }) => {
-  const items = useCartStore(itemsSelector);
-
-  return (
-    <Flex
-      as="section"
-      sx={{
-        borderBottom: "1px solid",
-        borderColor: "gray.100",
-      }}
-    >
-      <Container
-        maxW="xl"
-        sx={{
-          d: "flex",
-          height: "64px",
-          alignItems: "center",
-        }}
-      >
-        <Link href="/" passHref>
-          <a>
-            <Flex alignItems="center">
-              <Logo style={{ height: "60px", width: "80px" }} />
-              <Text
-                fontSize="2xl"
-                fontWeight="bold"
-                mx="3"
-                display={["none", null, "block"]}
-              >
-                JHONLINEORDER
-              </Text>
-            </Flex>
-          </a>
-        </Link>
-        <Flex flex="1" alignItems="flex-start" flexDir="column" mx="10">
-          <Text fontWeight="500">(307) 264-8232</Text>
-          <Text fontSize="sm" color="gray.500">
-            available 24 / 7
-          </Text>
-        </Flex>
-        {isWithCart ? (
-          <Popover placement="bottom">
-            <PopoverTrigger>
-              <Button
-                rightIcon={
-                  <Box sx={{ width: "25px", textAlign: "start" }}>
-                    | {items.length}
-                  </Box>
-                }
-                colorScheme="orange"
-                variant="solid"
-              >
-                Cart
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent>
-              <PopoverArrow />
-              <PopoverBody>
-                <Cart />
-              </PopoverBody>
-            </PopoverContent>
-          </Popover>
-        ) : null}
-      </Container>
-    </Flex>
   );
 };
 

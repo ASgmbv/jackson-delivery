@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { Button, Text, Flex, Stack, StackDivider } from "@chakra-ui/react";
-import useCartStore from "../utils/hooks/useCartStore";
+import useCartStore from "../../utils/hooks/useCartStore";
 import CartItem from "./CartItem";
 import Link from "next/link";
 import { SearchIcon } from "@chakra-ui/icons";
@@ -27,10 +27,7 @@ const Cart = () => {
   }
 
   return (
-    <Stack
-      p="2"
-      divider={<StackDivider borderColor="gray.200" align="stretch" />}
-    >
+    <Stack divider={<StackDivider borderColor="gray.200" align="stretch" />}>
       {items.map((item, index) => (
         <CartItem data={item} key={"cartItem-" + index} />
       ))}
