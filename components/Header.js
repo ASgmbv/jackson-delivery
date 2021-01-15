@@ -15,8 +15,10 @@ import {
 import useCartStore from "../utils/hooks/useCartStore";
 import Cart from "./Cart";
 import Link from "next/link";
+import NextImage from "next/image";
 import Logo from "../assets/icons/Logo";
 import React from "react";
+import Bag from "../assets/icons/Bag";
 
 const itemsSelector = (state) => state.items;
 
@@ -28,11 +30,6 @@ const itemsSelector = (state) => state.items;
 
 const Header = ({ isWithCart = true }) => {
   const items = useCartStore(itemsSelector);
-
-  const logoSize = useBreakpointValue({
-    base: "60px",
-    md: "80px",
-  });
 
   return (
     <chakra.header
@@ -56,9 +53,14 @@ const Header = ({ isWithCart = true }) => {
         <Link href="/" passHref>
           <a>
             <Flex alignItems="center">
-              <Logo height="50px" width={logoSize} />
+              <NextImage
+                src="/taxi.png"
+                alt="Logo"
+                height="50px"
+                width="50px"
+              />
               <Text
-                fontSize="2xl"
+                fontSize="xl"
                 fontWeight="bold"
                 mx={3}
                 display={["none", null, "block"]}
@@ -74,36 +76,40 @@ const Header = ({ isWithCart = true }) => {
           flexDir="column"
           mx={[3, null, 10]}
         >
-          <Text fontWeight="500" fontSize={["xs", null, "xl"]}>
+          <Text fontWeight="500" fontSize={["0.625rem", null, "sm"]}>
             (307) 264-8232
           </Text>
-          <Text fontSize={["xs", null, "sm"]} color="gray.500">
+          <Text fontSize={["0.625rem", null, "sm"]} color="gray.500">
             available 24 / 7
           </Text>
         </Flex>
 
         <Link href="/checkout" passHref>
-          <Button
-            d={["inline-flex", null, "none"]}
-            as="a"
-            rightIcon={
-              <Box
-                sx={{
-                  textAlign: "start",
-                }}
+          <Box position="relative">
+            <Bag />
+            {items.length > 0 && (
+              <Text
+                as="span"
+                position="absolute"
+                borderRadius="50%"
+                right="0.75rem"
+                top="0.75rem"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                height="1rem"
+                backgroundColor="black"
+                color="white"
+                width="1rem"
+                fontSize="xs"
               >
-                | {items.length}
-              </Box>
-            }
-            colorScheme="orange"
-            variant="solid"
-            size="sm"
-          >
-            Cart
-          </Button>
+                {items.length}
+              </Text>
+            )}
+          </Box>
         </Link>
 
-        {isWithCart ? (
+        {/* {isWithCart ? (
           <Popover placement="bottom">
             <PopoverTrigger>
               <Button
@@ -131,7 +137,7 @@ const Header = ({ isWithCart = true }) => {
               </PopoverBody>
             </PopoverContent>
           </Popover>
-        ) : null}
+        ) : null} */}
       </Container>
     </chakra.header>
   );

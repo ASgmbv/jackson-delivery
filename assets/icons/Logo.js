@@ -1,8 +1,14 @@
 import * as React from "react";
 
-function Logo(props) {
+function Logo({ width = 150, height = 104, ...props }) {
   return (
-    <svg width={150} height={104} viewBox="0 0 150 104" fill="none" {...props}>
+    <svg
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
+      fill="none"
+      {...props}
+    >
       <path
         d="M106.125 34.125h-22.75L85 24.375h19.5l1.625 9.75z"
         fill="#FFEB3B"
