@@ -3,7 +3,7 @@
 import { Text, Flex, IconButton } from "@chakra-ui/react";
 import useCartStore from "../../utils/hooks/useCartStore";
 import { CloseIcon } from "@chakra-ui/icons";
-import Counter from "./Counter";
+import Counter from "../Counter";
 import Trash from "../../assets/icons/Trash";
 
 const removeItemSelector = (state) => state.removeItem;

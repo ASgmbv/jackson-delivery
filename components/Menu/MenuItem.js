@@ -13,13 +13,13 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
+  Box,
   ModalCloseButton,
 } from "@chakra-ui/react";
-import Details from "../components/Details/index.js";
+import Details from "../Details/index.js";
 import NextImage from "next/image";
 
 const MenuItem = (props) => {
-  // console.log({ props });
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
     title = "",
@@ -30,17 +30,16 @@ const MenuItem = (props) => {
   } = props;
 
   return (
-    <Flex
-      flexDir={["column"]}
-      flex="1"
-      minW="300px"
-      maxW="400px"
-      mx="4"
-      mb="16"
-      sx={{
-        cursor: "pointer",
-      }}
-    >
+    <Flex flexDirection="column">
+      <span>{title}</span>
+      <Box overflow="hidden">
+        <Text>{description}</Text>
+      </Box>
+    </Flex>
+  );
+
+  return (
+    <Flex flexDir={["column"]} width="100%" mb="16">
       <NextImage
         alt={title}
         src={image}
@@ -64,11 +63,7 @@ const MenuItem = (props) => {
       </Text>
 
       <Flex justifyContent="space-between" alignItems="center" mt="auto">
-        <Heading
-          size="lg"
-          fontWeight="600"
-          // color="orange.500"
-        >
+        <Heading size="lg" fontWeight="600">
           $ {price}
         </Heading>
 

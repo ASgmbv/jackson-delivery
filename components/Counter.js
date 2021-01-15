@@ -1,7 +1,7 @@
 import { Flex, Button, Text, Input } from "@chakra-ui/react";
 import React from "react";
-import Minus from "../../assets/icons/Minus";
-import Plus from "../../assets/icons/Plus";
+import Minus from "../assets/icons/Minus";
+import Plus from "../assets/icons/Plus";
 
 const Counter = ({ onDec, onInc, value, ...props }) => {
   return (

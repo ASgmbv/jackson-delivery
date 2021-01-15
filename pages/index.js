@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
 
-import Menu from "../components/Menu";
+import Menu from "../components/Menu/Menu";
 import Banner from "../components/Banner";
 import { sections } from "../assets/data/data";
 import { Box } from "@chakra-ui/react";
@@ -18,9 +18,7 @@ export default function Home({ menu }) {
       <SEO title="JH Online Orders" />
       <Header isWithCart={true} />
       <Banner />
-      <Container maxW="7xl" mt={["3rem", null, "4.5rem"]}>
-        <Menu sections={menu} />
-      </Container>
+      <Menu sections={menu} />
       <Box sx={{ height: "100px" }} />
     </>
   );

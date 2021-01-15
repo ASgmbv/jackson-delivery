@@ -33,7 +33,7 @@ const Cart = () => {
       ))}
       <Flex alignItems="center" justifyContent="space-between" py="3">
         <Link href="/checkout" passHref>
-          <Button colorScheme="orange" variant="outline">
+          <Button colorScheme="orange" size="sm" variant="outline">
             To checkout
           </Button>
         </Link>
