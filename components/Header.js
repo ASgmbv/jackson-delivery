@@ -32,7 +32,7 @@ const Header = () => {
       top="0"
       left="0"
       right="0"
-      zIndex="1"
+      zIndex="2"
       width="full"
       borderBottom="1px solid"
       borderBottomColor="gray.100"

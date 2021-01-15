@@ -23,11 +23,17 @@ const SubMenu = ({ section }) => {
     <Box>
       <Heading
         as="h2"
-        size="md"
-        maxW="500px"
+        fontSize={["sm", null, "xl"]}
         fontWeight="600"
         mb="4"
         color="green.600"
+        position="sticky"
+        top={["3rem", null, "4rem"]}
+        bg="white"
+        py="2"
+        px="1"
+        zIndex="1"
+        boxShadow="md"
       >
         {title.toUpperCase()}
       </Heading>
