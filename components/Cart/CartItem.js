@@ -16,7 +16,7 @@ const CartItem = ({ data }) => {
   const clearItem = useCartStore(clearItemSelector);
 
   return (
-    <Flex py="10">
+    <Flex py="6">
       <Flex flex="1" flexDirection="column">
         <Text fontWeight="500" mb="4">
           {data.title}

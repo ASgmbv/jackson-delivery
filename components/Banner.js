@@ -4,7 +4,7 @@ import { Flex, Text, Heading } from "@chakra-ui/react";
 const Banner = () => {
   return (
     <Flex
-      mt={["3rem", null, "4.5rem"]}
+      mt={["3rem", null, "4rem"]}
       w="full"
       backgroundColor="rgba(0, 0, 0, 0.5)"
       backgroundImage="url('/bg.jpg')"

@@ -11,6 +11,7 @@ import {
   DrawerCloseButton,
   DrawerHeader,
   DrawerBody,
+  Heading,
 } from "@chakra-ui/react";
 import useCartStore from "../utils/hooks/useCartStore";
 import Cart from "./Cart/Cart";
@@ -71,7 +72,7 @@ const Header = () => {
           flexDir="column"
           mx={[3, null, 10]}
         >
-          <Text fontWeight="500" fontSize={["0.625rem", null, "sm"]}>
+          <Text fontWeight="500" fontSize={["xs", null, "sm"]}>
             (307) 264-8232
           </Text>
           <Text fontSize={["0.625rem", null, "sm"]} color="gray.500">
@@ -106,7 +107,7 @@ const Header = () => {
             <DrawerContent>
               <DrawerCloseButton />
               <DrawerHeader borderBottom="1px solid" borderColor="gray.200">
-                My Cart
+                <Heading size="sm">My Cart</Heading>
               </DrawerHeader>
               <DrawerBody>
                 <Cart />
