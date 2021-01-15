@@ -10,16 +10,29 @@ import {
   Text,
   Flex,
   chakra,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import useCartStore from "../utils/hooks/useCartStore";
 import Cart from "./Cart";
 import Link from "next/link";
 import Logo from "../assets/icons/Logo";
+import React from "react";
 
 const itemsSelector = (state) => state.items;
 
+// base: "base",
+// sm: "small",
+// md: "md",
+// lg: "lg",
+// xl: "xl",
+
 const Header = ({ isWithCart = true }) => {
   const items = useCartStore(itemsSelector);
+
+  const logoSize = useBreakpointValue({
+    base: "60px",
+    md: "80px",
+  });
 
   return (
     <chakra.header
@@ -35,7 +48,7 @@ const Header = ({ isWithCart = true }) => {
     >
       <Container
         maxW="7xl"
-        height="4.5rem"
+        height={["3rem", null, "4.5rem"]}
         mx="auto"
         d="flex"
         alignItems="center"
@@ -43,7 +56,7 @@ const Header = ({ isWithCart = true }) => {
         <Link href="/" passHref>
           <a>
             <Flex alignItems="center">
-              <Logo style={{ height: "5rem", width: "5rem" }} />
+              <Logo height="50px" width={logoSize} />
               <Text
                 fontSize="2xl"
                 fontWeight="bold"
@@ -59,10 +72,12 @@ const Header = ({ isWithCart = true }) => {
           flex="1"
           alignItems="flex-start"
           flexDir="column"
-          mx={[6, null, 10]}
+          mx={[3, null, 10]}
         >
-          <Text fontWeight="500">(307) 264-8232</Text>
-          <Text fontSize="sm" color="gray.500">
+          <Text fontWeight="500" fontSize={["xs", null, "xl"]}>
+            (307) 264-8232
+          </Text>
+          <Text fontSize={["xs", null, "sm"]} color="gray.500">
             available 24 / 7
           </Text>
         </Flex>
@@ -82,6 +97,7 @@ const Header = ({ isWithCart = true }) => {
             }
             colorScheme="orange"
             variant="solid"
+            size="sm"
           >
             Cart
           </Button>

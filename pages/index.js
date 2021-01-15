@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
+
 import Menu from "../components/Menu";
 import Banner from "../components/Banner";
 import { sections } from "../assets/data/data";
@@ -17,16 +18,12 @@ export default function Home({ menu }) {
       <SEO title="JH Online Orders" />
       <Header isWithCart={true} />
       <Banner />
-      <Container maxW="7xl" mt="4.5rem">
+      <Container maxW="7xl" mt={["3rem", null, "4.5rem"]}>
         <Menu sections={menu} />
       </Container>
       <Box sx={{ height: "100px" }} />
     </>
   );
-}
-
-{
-  /* <pre>{JSON.stringify(menu, null, 2)}</pre> */
 }
 
 export async function getStaticProps() {
@@ -42,9 +39,6 @@ export async function getStaticProps() {
 
   let menu = [];
   let tags = [];
-
-  // console.log("size:", products1.results.length);
-  // console.log("size:", products2.results.length);
 
   products1.results.map((product) => {
     let tag = product.tags[0];
