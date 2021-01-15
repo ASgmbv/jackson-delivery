@@ -19,6 +19,7 @@ import {
 } from "@chakra-ui/react";
 import Details from "../Details/index.js";
 import NextImage from "next/image";
+import { Search2Icon } from "@chakra-ui/icons";
 
 const MenuItem = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -56,6 +57,12 @@ const MenuItem = (props) => {
           onClick={onImageOpen}
         >
           <NextImage alt={title} src={image} layout="fill" objectFit="cover" />
+          <Search2Icon
+            position="absolute"
+            bottom="0.5rem"
+            right="0.5rem"
+            color="gray.500"
+          />
         </Box>
 
         <Modal
@@ -73,10 +80,11 @@ const MenuItem = (props) => {
                 borderColor: "gray.100",
               }}
             >
-              {title}
+              <Heading size="sm">{title}</Heading>
+
               <ModalCloseButton />
             </ModalHeader>
-            <ModalBody>
+            <ModalBody p="0">
               <AspectRatio width="100%" ratio={1}>
                 <NextImage
                   alt={title}
@@ -134,47 +142,6 @@ const MenuItem = (props) => {
           colorScheme="orange"
           borderRadius="0"
           size="sm"
-        >
-          Select
-        </Button>
-      </Flex>
-    </Flex>
-  );
-
-  return (
-    <Flex flexDir={["column"]} width="100%" mb="16">
-      <NextImage
-        alt={title}
-        src={image}
-        width="350"
-        height="200"
-        className="nextimage"
-      />
-
-      <Heading as="h3" size="lg" fontWeight="500" my="2" color="orange.500">
-        {title}
-      </Heading>
-
-      <Text
-        fontSize="md"
-        color="gray.500"
-        mb="4"
-        letterSpacing="wide"
-        lineHeight="base"
-      >
-        {description}
-      </Text>
-
-      <Flex justifyContent="space-between" alignItems="center" mt="auto">
-        <Heading size="lg" fontWeight="600">
-          $ {price}
-        </Heading>
-
-        <Button
-          onClick={onOpen}
-          colorScheme="orange"
-          borderRadius="0"
-          size="lg"
         >
           Select
         </Button>
