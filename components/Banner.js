@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { Flex, Text, Heading } from "@chakra-ui/react";
+import { Flex, Text, Heading, Container } from "@chakra-ui/react";
 
 const Banner = () => {
   return (
@@ -11,7 +11,7 @@ const Banner = () => {
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
-      height={["350px", "400px", "450px"]}
+      height={["130px", null, "200px"]}
       position="relative"
     >
       <Flex
@@ -21,44 +21,39 @@ const Banner = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          alignItems: "flex-start",
+          alignItems: "center",
           justifyContent: "center",
-          flexDirection: "column",
           bg: [
             "rgba(0,0,0,0.4)",
-            // "rgba(1,34,102,0.4)",
             null,
-            "linear-gradient(90deg, rgba(1,34,102,0.5956757703081232) 0%, rgba(0,0,0,0) 58%)",
+            "linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 78%)",
           ],
-          p: [0, null, "70px"],
         }}
       >
-        <Heading
-          fontSize={["3xl", null, "5xl"]}
-          textAlign={["center", null, "start"]}
-          w="100%"
-          as="h1"
-          color="white"
-          mb="4"
-        >
-          The Bunnery restaurant
-        </Heading>
-        <Text
-          color="white"
-          w="100%"
-          textAlign={["center", null, "start"]}
-          fontWeight="bold"
-          fontSize={["md", null, "xl"]}
-          lineHeight="tall"
-        >
-          Place you Special order in Advance.
-          <br />
-          Pick Up and Delivery order required
-          <br />
-          at least 30 - 45 minutes.
-          <br />
-          Hoping for your understanding!
-        </Text>
+        <Container maxW="7xl">
+          <Heading
+            fontSize={["2xl", null, "5xl"]}
+            textAlign={["start"]}
+            w="100%"
+            as="h1"
+            color="white"
+            mb="2"
+          >
+            The Bunnery restaurant
+          </Heading>
+          <Text
+            color="white"
+            textAlign={["start"]}
+            fontWeight="bold"
+            fontSize={["xs", null, "sm"]}
+            lineHeight="tall"
+          >
+            Place you Special order in Advance. Pick Up and Delivery order
+            required
+            <br />
+            at least 30 - 45 minutes. Hoping for your understanding!
+          </Text>
+        </Container>
       </Flex>
     </Flex>
   );
