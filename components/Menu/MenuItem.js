@@ -15,12 +15,19 @@ import {
   ModalFooter,
   Box,
   ModalCloseButton,
+  AspectRatio,
 } from "@chakra-ui/react";
 import Details from "../Details/index.js";
 import NextImage from "next/image";
 
 const MenuItem = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const {
+    isOpen: imageOpen,
+    onOpen: onImageOpen,
+    onClose: onImageClose,
+  } = useDisclosure();
+
   const {
     title = "",
     description = "",
@@ -39,9 +46,49 @@ const MenuItem = (props) => {
       borderColor="gray.300"
     >
       <Flex flex="1" mb="3">
-        <Box width="100px" height="100px" mr="4" position="relative">
+        <Box
+          border="3px solid"
+          borderColor="gray.200"
+          width="100px"
+          height="100px"
+          mr="4"
+          position="relative"
+          onClick={onImageOpen}
+        >
           <NextImage alt={title} src={image} layout="fill" objectFit="cover" />
         </Box>
+
+        <Modal
+          isOpen={imageOpen}
+          onClose={onImageClose}
+          size={"xl"}
+          blockScrollOnMount={true}
+          isCentered
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader
+              sx={{
+                borderBottom: "1px solid",
+                borderColor: "gray.100",
+              }}
+            >
+              {title}
+              <ModalCloseButton />
+            </ModalHeader>
+            <ModalBody>
+              <AspectRatio width="100%" ratio={1}>
+                <NextImage
+                  alt={title}
+                  src={image}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </AspectRatio>
+            </ModalBody>
+          </ModalContent>
+        </Modal>
+
         <Flex flexDirection="column" flex="1" overflow="hidden">
           <Heading size="xs" mb="2">
             {title}
