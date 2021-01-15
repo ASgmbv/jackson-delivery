@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
-import { Text, Heading, Flex, IconButton } from "@chakra-ui/react";
+import { Heading, Flex } from "@chakra-ui/react";
 import useCartStore from "../../utils/hooks/useCartStore";
-import { CloseIcon } from "@chakra-ui/icons";
 import Counter from "../Counter";
 import Trash from "../../assets/icons/Trash";
 
@@ -27,7 +26,11 @@ const CartItem = ({ data }) => {
           onInc={() => addItem(data)}
         />
       </Flex>
-      <Flex flexDirection="column" justifyContent="space-between">
+      <Flex
+        flexDirection="column"
+        justifyContent="space-between"
+        alignItems="flex-end"
+      >
         <span>
           {"$ " + Math.round(data.quantity * data.totalPrice * 100) / 100}
         </span>

@@ -110,23 +110,31 @@ const MenuItem = (props) => {
           onClose={onClose}
           size={"xl"}
           blockScrollOnMount={true}
+          isCentered
         >
           <ModalOverlay />
-          <ModalContent>
+          <ModalContent borderRadius="0">
             <ModalHeader
               sx={{
                 borderBottom: "1px solid",
                 borderColor: "gray.100",
               }}
             >
-              {title}
+              <Heading size="sm">{title}</Heading>
               <ModalCloseButton />
             </ModalHeader>
             <ModalBody>
               <Details {...props} onClose={onClose} />
             </ModalBody>
             <ModalFooter>
-              <Button colorScheme="orange" type="submit" form="form">
+              <Button
+                colorScheme="orange"
+                size="sm"
+                borderRadius="0"
+                type="submit"
+                form="form"
+                variant="outline"
+              >
                 Add to cart
               </Button>
             </ModalFooter>
@@ -143,7 +151,7 @@ const MenuItem = (props) => {
           borderRadius="0"
           size="sm"
         >
-          Select
+          Add to cart
         </Button>
       </Flex>
     </Flex>

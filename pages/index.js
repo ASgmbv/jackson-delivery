@@ -16,10 +16,9 @@ export default function Home({ menu }) {
   return (
     <>
       <SEO title="JH Online Orders" />
-      <Header isWithCart={true} />
+      <Header />
       <Banner />
       <Menu sections={menu} />
-      <Box sx={{ height: "100px" }} />
     </>
   );
 }
