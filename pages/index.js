@@ -3,14 +3,10 @@
 
 import Menu from "../components/Menu/Menu";
 import Banner from "../components/Banner";
-import { sections } from "../assets/data/data";
-import { Box } from "@chakra-ui/react";
-import Layout from "../components/Layout";
 import { Client } from "../prismic-configuration";
 import Prismic from "prismic-javascript";
 import SEO from "../components/seo";
 import Header from "../components/Header";
-import { Container } from "@chakra-ui/react";
 
 export default function Home({ menu }) {
   return (
