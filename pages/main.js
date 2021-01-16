@@ -8,7 +8,7 @@ const MainPage = () => {
     <Container maxW="4xl" bg="blue.100">
       <Box>
         <Heading mb="10">Restaurants</Heading>
-        <Stack spacing="10">
+        <Stack spacing="10" mb="10">
           {restaurants.map((restaurant, index) => (
             <Box
               key={index}
@@ -24,17 +24,19 @@ const MainPage = () => {
                 position="absolute"
                 justifyContent="center"
                 flexDirection="column"
-                p="10"
+                p={[4, null, 10]}
                 top="0"
                 left="0"
                 height="100%"
                 width="100%"
                 backgroundImage="linear-gradient(180deg,transparent 25%,rgba(0,0,0,.7) 69%,rgba(0,0,0,.8)),linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.1));"
               >
-                <Heading size="md" color="white" mb="4">
+                <Heading fontSize={["md", null, "2xl"]} color="white" mb="4">
                   {restaurant}
                 </Heading>
-                <Text color="white">this is description</Text>
+                <Text fontSize={["sm", null, "md"]} color="white">
+                  this is description
+                </Text>
               </Flex>
             </Box>
           ))}
