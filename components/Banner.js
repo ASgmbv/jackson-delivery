@@ -2,7 +2,9 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { Flex, Text, Heading, Container } from "@chakra-ui/react";
 
-const Banner = ({ restaurant: { name, workingHours, description } }) => {
+const Banner = ({ restaurant = {} }) => {
+  const { name, workingHours, description } = restaurant;
+
   return (
     <Flex
       mt={["3rem", null, "4rem"]}
@@ -40,7 +42,7 @@ const Banner = ({ restaurant: { name, workingHours, description } }) => {
             color="white"
             mb="2"
           >
-            {name}
+            {name || ""}
           </Heading>
           <Text
             color="white"
@@ -51,7 +53,7 @@ const Banner = ({ restaurant: { name, workingHours, description } }) => {
             maxW="500px"
             mb="4"
           >
-            {description}
+            {description || ""}
           </Text>
           <Text
             color="white"
@@ -60,7 +62,7 @@ const Banner = ({ restaurant: { name, workingHours, description } }) => {
             fontSize={["xs", null, "sm"]}
             lineHeight="tall"
           >
-            {workingHours}
+            {workingHours || ""}
           </Text>
         </Container>
       </Flex>
