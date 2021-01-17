@@ -34,6 +34,9 @@ const itemsSelector = (state) => state.items;
 
 const promise = loadStripe("pk_live_4oQ0np4hyAvdGF9rbAFFyLcX009WIELd7g");
 
+const DELIVERY_FEE = 10;
+const TAX_RATE = 6.05;
+
 const Checkout = () => {
   const items = useCartStore(itemsSelector);
   const [tipAmount, setTipAmount] = useState(15);
@@ -49,9 +52,9 @@ const Checkout = () => {
       }, 0) * 100
     ) / 100;
 
-  const delivery = isDelivery === "Delivery" ? 7 : 0;
+  const delivery = isDelivery === "Delivery" ? DELIVERY_FEE : 0;
 
-  const tax = Math.round((order + delivery) * 6.5) / 100;
+  const tax = Math.round((order + delivery) * TAX_RATE) / 100;
 
   const tip = Math.round((order + delivery) * tipAmount) / 100;
 
