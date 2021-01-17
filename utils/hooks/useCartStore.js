@@ -58,6 +58,11 @@ const useCartStore = create((set, get) => ({
       items: items.filter((item) => item.title !== itemToClear.title),
     });
   },
+  clearCart: () => {
+    return set({
+      items: [],
+    });
+  },
 }));
 
 export default useCartStore;

@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { Box, Container, Heading, Stack } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../components/Header";
 import RestaurantCard from "../components/RestaurantCard";
 import { fetchRestaurants } from "../utils/prismicQueries";
 import NextLink from "next/link";
+import useCartStore from "../utils/hooks/useCartStore";
 
 export async function getStaticProps() {
   let restaurants = await fetchRestaurants();
@@ -17,7 +18,15 @@ export async function getStaticProps() {
   };
 }
 
+const clearCartSelector = (state) => state.clearCart;
+
 const MainPage = ({ restaurants }) => {
+  const clearCart = useCartStore(clearCartSelector);
+
+  useEffect(() => {
+    clearCart();
+  }, [clearCart]);
+
   return (
     <>
       <Header withCart={false} />
