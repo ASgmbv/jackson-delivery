@@ -22,7 +22,7 @@ import Bag from "../assets/icons/Bag";
 
 const itemsSelector = (state) => state.items;
 
-const Header = () => {
+const Header = ({ withCart = true }) => {
   const items = useCartStore(itemsSelector);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -80,41 +80,45 @@ const Header = () => {
           </Text>
         </Flex>
 
-        <Box position="relative" onClick={onOpen}>
-          <Bag />
-          {items.length > 0 && (
-            <Text
-              as="span"
-              position="absolute"
-              borderRadius="50%"
-              right="0.75rem"
-              top="0.75rem"
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              height="1rem"
-              backgroundColor="black"
-              color="white"
-              width="1rem"
-              fontSize="xs"
-            >
-              {items.length}
-            </Text>
-          )}
-        </Box>
-        <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-          <DrawerOverlay>
-            <DrawerContent>
-              <DrawerCloseButton />
-              <DrawerHeader borderBottom="1px solid" borderColor="gray.200">
-                <Heading size="sm">My Cart</Heading>
-              </DrawerHeader>
-              <DrawerBody>
-                <Cart />
-              </DrawerBody>
-            </DrawerContent>
-          </DrawerOverlay>
-        </Drawer>
+        {withCart && (
+          <>
+            <Box position="relative" onClick={onOpen}>
+              <Bag />
+              {items.length > 0 && (
+                <Text
+                  as="span"
+                  position="absolute"
+                  borderRadius="50%"
+                  right="0.75rem"
+                  top="0.75rem"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  height="1rem"
+                  backgroundColor="black"
+                  color="white"
+                  width="1rem"
+                  fontSize="xs"
+                >
+                  {items.length}
+                </Text>
+              )}
+            </Box>
+            <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+              <DrawerOverlay>
+                <DrawerContent>
+                  <DrawerCloseButton />
+                  <DrawerHeader borderBottom="1px solid" borderColor="gray.200">
+                    <Heading size="sm">My Cart</Heading>
+                  </DrawerHeader>
+                  <DrawerBody>
+                    <Cart />
+                  </DrawerBody>
+                </DrawerContent>
+              </DrawerOverlay>
+            </Drawer>
+          </>
+        )}
       </Container>
     </chakra.header>
   );

@@ -1,70 +1,57 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable react/react-in-jsx-scope */
-
-import Menu from "../components/Menu/Menu";
-import Banner from "../components/Banner";
-import { Client } from "../prismic-configuration";
-import Prismic from "prismic-javascript";
-import SEO from "../components/seo";
+import { Box, Container, Heading, Stack } from "@chakra-ui/react";
+import React from "react";
 import Header from "../components/Header";
-
-export default function Home({ menu }) {
-  return (
-    <>
-      <SEO title="JH Online Orders" />
-      <Header />
-      <Banner />
-      <Menu sections={menu} />
-    </>
-  );
-}
+import RestaurantCard from "../components/RestaurantCard";
+import { fetchRestaurants } from "../utils/prismicQueries";
+import NextLink from "next/link";
 
 export async function getStaticProps() {
-  let products1 = await Client().query(
-    Prismic.Predicates.at("document.type", "product"),
-    { pageSize: 100, page: 1 }
-  );
-
-  let products2 = await Client().query(
-    Prismic.Predicates.at("document.type", "product"),
-    { pageSize: 100, page: 2 }
-  );
-
-  let menu = [];
-  let tags = [];
-
-  products1.results.map((product) => {
-    let tag = product.tags[0];
-    if (!tags.includes(tag)) {
-      tags.push(tag);
-      menu.push({
-        title: tag,
-        items: [product],
-      });
-    } else {
-      let section = menu.find((menuItem) => menuItem.title === tag);
-      section.items.push(product);
-    }
-  });
-
-  products2.results.map((product) => {
-    let tag = product.tags[0];
-    if (!tags.includes(tag)) {
-      tags.push(tag);
-      menu.push({
-        title: tag,
-        items: [product],
-      });
-    } else {
-      let section = menu.find((menuItem) => menuItem.title === tag);
-      section.items.push(product);
-    }
-  });
+  let restaurants = await fetchRestaurants();
 
   return {
     props: {
-      menu: menu || [],
+      restaurants,
     },
-    revalidate: 1,
   };
 }
+
+const MainPage = ({ restaurants }) => {
+  return (
+    <>
+      <Header withCart={false} />
+      <Container maxW="4xl" mt={["3rem", null, "4rem"]}>
+        <Box>
+          <Heading py={[4, null, 10]} fontSize={["md", null, "xl"]}>
+            Restaurants
+          </Heading>
+          <Stack spacing="10" mb="10">
+            {restaurants.map(
+              (
+                { name, description, image, isWorking, uid, workingHours },
+                index
+              ) => (
+                <NextLink
+                  key={"restaurant-item-" + index}
+                  href={`/restaurants/${uid}`}
+                >
+                  <a>
+                    <RestaurantCard
+                      name={name}
+                      description={description}
+                      image={image}
+                      isWorking={isWorking}
+                      workingHours={workingHours}
+                    />
+                  </a>
+                </NextLink>
+              )
+            )}
+          </Stack>
+        </Box>
+      </Container>
+    </>
+  );
+};
+
+export default MainPage;

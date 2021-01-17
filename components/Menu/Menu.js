@@ -2,13 +2,12 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { Heading, Grid, Box, Flex, Container, Stack } from "@chakra-ui/react";
 import MenuItem from "./MenuItem";
-import { RichText } from "prismic-reactjs";
 
-const Menu = ({ sections = [] }) => {
+const Menu = ({ menu = [] }) => {
   return (
-    <Container maxW="7xl" mt={["3rem", null, "4.5rem"]}>
+    <Container maxW="7xl" my={["3rem", null, "4.5rem"]}>
       <Stack spacing="16" width="100%">
-        {sections.map((section, index) => (
+        {menu.map((section, index) => (
           <SubMenu key={index} section={section} />
         ))}
       </Stack>
@@ -16,9 +15,7 @@ const Menu = ({ sections = [] }) => {
   );
 };
 
-const SubMenu = ({ section }) => {
-  let { title = "", items = [] } = section;
-
+const SubMenu = ({ section: { title, items } }) => {
   return (
     <Box>
       <Heading
@@ -48,29 +45,14 @@ const SubMenu = ({ section }) => {
         ]}
         gap={4}
       >
-        {items.map((item, index) => {
-          let options = item.data.body.map((e) => {
-            if (e.slice_type === "option") {
-              return {
-                title: RichText.asText(e.primary.option_title),
-                slug: RichText.asText(e.primary.option_slug),
-                values: e.items.map((e) => {
-                  return {
-                    value: RichText.asText(e.option_name),
-                    extra: e.option_extra,
-                  };
-                }),
-              };
-            }
-          });
-
+        {items.map(({ title, description, image, price, options }, index) => {
           return (
             <MenuItem
               key={"menu-item-" + index}
-              title={RichText.asText(item.data.title)}
-              description={RichText.asText(item.data.description)}
-              price={item.data.price}
-              image={item.data.image.url}
+              title={title}
+              description={description}
+              price={price}
+              image={image}
               options={options}
             />
           );

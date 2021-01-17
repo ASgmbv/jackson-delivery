@@ -99,7 +99,7 @@ const Checkout = () => {
               </>
             ) : null}
             <Pricing title="Tax" value={tax} />
-            <Flex>
+            <Flex alignItems="center">
               <Pricing title="Tip" value={tip} />
               <Select
                 name="tip"
@@ -170,7 +170,7 @@ const Checkout = () => {
 
 const Pricing = ({ title, value, ...props }) => {
   return (
-    <Heading as="h2" fontSize="xl" {...props}>
+    <Heading fontWeight="600" as="h2" size="md" {...props}>
       {`${title}: `}
       <Text as="span" color="#FF6901">
         {`$${value}`}

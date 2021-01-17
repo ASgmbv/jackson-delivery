@@ -1,10 +1,17 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
-import { Flex, Image, Heading, Stack, Text, IconButton } from "@chakra-ui/react";
-import Counter from "../Counter";
+import {
+  Flex,
+  Image,
+  Heading,
+  Stack,
+  Text,
+  IconButton,
+} from "@chakra-ui/react";
+import Counter from "../components/Counter";
 import { CloseIcon } from "@chakra-ui/icons";
-import useCartStore from "../../utils/hooks/useCartStore";
-import { calculateExtra } from "../../utils/calculateExtra";
+import useCartStore from "../utils/hooks/useCartStore";
+import { calculateExtra } from "../utils/calculateExtra";
 import NextImage from "next/image";
 
 const removeItemSelector = (state) => state.removeItem;

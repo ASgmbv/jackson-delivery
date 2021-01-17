@@ -29,13 +29,7 @@ const MenuItem = (props) => {
     onClose: onImageClose,
   } = useDisclosure();
 
-  const {
-    title = "",
-    description = "",
-    price = 0,
-    image = "/pizza.png",
-    sliseZone = [],
-  } = props;
+  const { title = "", description = "", price = 0, image } = props;
 
   return (
     <Flex
@@ -56,7 +50,12 @@ const MenuItem = (props) => {
           position="relative"
           onClick={onImageOpen}
         >
-          <NextImage alt={title} src={image} layout="fill" objectFit="cover" />
+          <NextImage
+            alt={title}
+            src={image || "/pizza.png"}
+            layout="fill"
+            objectFit="cover"
+          />
           <Search2Icon
             position="absolute"
             bottom="0.5rem"

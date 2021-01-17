@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
 import { Flex, Text, Heading, Container } from "@chakra-ui/react";
 
-const Banner = () => {
+const Banner = ({ restaurant: { name, workingHours, description } }) => {
   return (
     <Flex
       mt={["3rem", null, "4rem"]}
@@ -39,7 +40,7 @@ const Banner = () => {
             color="white"
             mb="2"
           >
-            The Bunnery restaurant
+            {name}
           </Heading>
           <Text
             color="white"
@@ -47,11 +48,19 @@ const Banner = () => {
             fontWeight="bold"
             fontSize={["xs", null, "sm"]}
             lineHeight="tall"
+            maxW="500px"
+            mb="4"
           >
-            Place you Special order in Advance. Pick Up and Delivery order
-            required
-            <br />
-            at least 30 - 45 minutes. Hoping for your understanding!
+            {description}
+          </Text>
+          <Text
+            color="white"
+            textAlign={["start"]}
+            fontWeight="bold"
+            fontSize={["xs", null, "sm"]}
+            lineHeight="tall"
+          >
+            {workingHours}
           </Text>
         </Container>
       </Flex>
