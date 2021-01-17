@@ -13,6 +13,7 @@ export async function getStaticProps() {
     props: {
       restaurants,
     },
+    revalidate: 1,
   };
 }
 
