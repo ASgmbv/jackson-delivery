@@ -21,15 +21,16 @@ import Details from "../Details/index.js";
 import NextImage from "next/image";
 import { Search2Icon } from "@chakra-ui/icons";
 
-const MenuItem = (props) => {
+const MenuItem = ({ data }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   const {
     isOpen: imageOpen,
     onOpen: onImageOpen,
     onClose: onImageClose,
   } = useDisclosure();
 
-  const { title = "", description = "", price = 0, image } = props;
+  const { title, description, price, image } = data;
 
   return (
     <Flex
@@ -64,6 +65,7 @@ const MenuItem = (props) => {
           />
         </Box>
 
+        {/* Enlarged Image */}
         <Modal
           isOpen={imageOpen}
           onClose={onImageClose}
@@ -87,7 +89,7 @@ const MenuItem = (props) => {
               <AspectRatio width="100%" ratio={1}>
                 <NextImage
                   alt={title}
-                  src={image}
+                  src={image || "/pizza.png"}
                   layout="fill"
                   objectFit="cover"
                 />
@@ -104,6 +106,8 @@ const MenuItem = (props) => {
             <Text fontSize="sm">{description}</Text>
           </Box>
         </Flex>
+
+        {/* Details Modal */}
         <Modal
           isOpen={isOpen}
           onClose={onClose}
@@ -123,7 +127,7 @@ const MenuItem = (props) => {
               <ModalCloseButton />
             </ModalHeader>
             <ModalBody>
-              <Details {...props} onClose={onClose} />
+              <Details data={data} onClose={onClose} />
             </ModalBody>
             <ModalFooter>
               <Button

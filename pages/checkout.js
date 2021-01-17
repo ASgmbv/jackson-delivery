@@ -75,9 +75,11 @@ const Checkout = () => {
             spacing="8"
             divider={<StackDivider borderColor="gray.200" align="stretch" />}
           >
-            {items.map((item, index) => (
-              <CheckoutItem key={index} {...item} />
-            ))}
+            {items.map((item, index) => {
+              console.dir({ item }, { depth: null });
+
+              return <CheckoutItem key={index} data={item} />;
+            })}
           </Stack>
           <Divider my="6" />
 

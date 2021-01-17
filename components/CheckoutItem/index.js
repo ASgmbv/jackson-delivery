@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
 
-import { Flex, IconButton, Heading, Text } from "@chakra-ui/react";
+import { Flex, Heading, Text } from "@chakra-ui/react";
 import useCartStore from "../../utils/hooks/useCartStore";
-import { CloseIcon } from "@chakra-ui/icons";
 import Counter from "../Counter";
 import Trash from "../../assets/icons/Trash";
 
@@ -11,12 +10,12 @@ const clearItemSelector = (state) => state.clearItem;
 const removeItemSelector = (state) => state.removeItem;
 const addItemSelector = (state) => state.addItem;
 
-const CheckoutItem = (props) => {
+const CheckoutItem = ({ data }) => {
   const removeItem = useCartStore(removeItemSelector);
   const addItem = useCartStore(addItemSelector);
   const clearItem = useCartStore(clearItemSelector);
 
-  const { image, title, description, quantity, totalPrice } = props;
+  const { title, description, quantity, totalPrice } = data;
 
   return (
     <Flex flexDir="column">
@@ -30,7 +29,7 @@ const CheckoutItem = (props) => {
             justifyContent: "flex-end",
           }}
           onClick={() => {
-            clearItem(props);
+            clearItem({ ...data });
           }}
         >
           <Trash />
@@ -38,7 +37,7 @@ const CheckoutItem = (props) => {
       </Flex>
       {description && <Text mb="4">{description}</Text>}
 
-      {Object.entries(props).map((item, index) => {
+      {Object.entries(data).map((item, index) => {
         let t = item[0];
         if (
           t === "image" ||
@@ -46,7 +45,9 @@ const CheckoutItem = (props) => {
           t === "quantity" ||
           t === "type" ||
           t === "title" ||
-          t === "totalPrice"
+          t === "totalPrice" ||
+          t === "options" ||
+          t === "price"
         ) {
           return;
         }
@@ -65,10 +66,10 @@ const CheckoutItem = (props) => {
         <Counter
           value={quantity}
           onDec={() => {
-            removeItem(props);
+            removeItem({ ...data });
           }}
           onInc={() => {
-            addItem(props);
+            addItem({ ...data });
           }}
           alignSelf="center"
         />

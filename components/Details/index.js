@@ -13,16 +13,15 @@ import useCartStore from "../../utils/hooks/useCartStore";
 
 const addItemSelector = (state) => state.addItem;
 
-const Details = ({ onClose, price, options, ...props }) => {
+const Details = ({ onClose, data }) => {
   const toast = useToast();
   const { handleSubmit, register } = useForm();
   const addItem = useCartStore(addItemSelector);
 
-  const onSubmit = (values) => {
-    /**
-     * Total price of the item, including extra options
-     */
+  const { price, options } = data;
 
+  const onSubmit = (values) => {
+    // Total price
     let totalPrice = price;
 
     for (const [key, value] of Object.entries(values)) {
@@ -31,7 +30,7 @@ const Details = ({ onClose, price, options, ...props }) => {
       totalPrice = totalPrice + t.extra;
     }
 
-    addItem({ ...props, ...values, totalPrice });
+    addItem({ ...data, ...values, totalPrice });
     onClose();
     toast({
       position: "bottom-right",

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
-import { Heading, Grid, Box, Flex, Container, Stack } from "@chakra-ui/react";
+import { Heading, Grid, Box, Container, Stack } from "@chakra-ui/react";
 import MenuItem from "./MenuItem";
 
 const Menu = ({ menu = [] }) => {
@@ -45,17 +45,8 @@ const SubMenu = ({ section: { title, items } }) => {
         ]}
         gap={4}
       >
-        {items.map(({ title, description, image, price, options }, index) => {
-          return (
-            <MenuItem
-              key={"menu-item-" + index}
-              title={title}
-              description={description}
-              price={price}
-              image={image}
-              options={options}
-            />
-          );
+        {items.map((item, index) => {
+          return <MenuItem key={"menu-item-" + index} data={item} />;
         })}
       </Grid>
     </Box>

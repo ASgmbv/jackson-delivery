@@ -1,10 +1,5 @@
 Restaurant Object
 
-{
-name,
-isWorking,
-description,
-image,
-slug,
-id
-}
+Restaurant: name, isWorking, description, image, slug, id
+
+MenuItem: title, price, image, description, options
