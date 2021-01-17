@@ -4,7 +4,9 @@ import { RichText } from "prismic-reactjs";
 
 export async function fetchRestaurants() {
   let restaurants = await Client().query(
-    Prismic.Predicates.at("document.type", "restaurant")
+    Prismic.Predicates.at("document.type", "restaurant"),
+
+    { orderings: "[document.first_publication_date]" }
   );
 
   restaurants = restaurants.results.map((restaurant) => {

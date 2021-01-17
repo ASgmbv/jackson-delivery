@@ -5,6 +5,8 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 export const sendEmail = async ({ items, data, prices }) => {
   let text = ``;
 
+  // restaurant info
+
   // user data
   for (const [key, value] of Object.entries(data)) {
     text += `${key}: ${value}\n`;
