@@ -46,8 +46,8 @@ export const sendEmail = async ({ items, data, prices, restaurant }) => {
   }
 
   let res = await sgMail.send({
-    to: ["alimbeksagymbaev@gmail.com", restaurant.email],
-    // to: ["tianguberabdurahman@gmail.com", restaurant.email],
+    // to: ["alimbeksagymbaev@gmail.com", restaurant.email],
+    to: ["tianguberabdurahman@gmail.com", restaurant.email],
     from: "jacksononlineorder@gmail.com",
     subject: "New Jackson Online Delivery Order",
     text,
