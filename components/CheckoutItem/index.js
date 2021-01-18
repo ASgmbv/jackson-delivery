@@ -20,7 +20,7 @@ const CheckoutItem = ({ data }) => {
   return (
     <Flex flexDir="column">
       <Flex justifyContent="space-between" mb="2" w="full" alignItems="center">
-        <Heading as="h3" size="md" fontWeight="500" color="orange.500">
+        <Heading as="h3" size="sm">
           {title}
         </Heading>
         <button
@@ -35,7 +35,11 @@ const CheckoutItem = ({ data }) => {
           <Trash />
         </button>
       </Flex>
-      {description && <Text mb="4">{description}</Text>}
+      {description && (
+        <Text mb="4" fontSize="md">
+          {description}
+        </Text>
+      )}
 
       {Object.entries(data).map((item, index) => {
         let t = item[0];
@@ -73,7 +77,7 @@ const CheckoutItem = ({ data }) => {
           }}
           alignSelf="center"
         />
-        <Text fontWeight="600" fontSize="xl">
+        <Text fontWeight="600" fontSize="lg" color="orange.500">
           {"$ " + Math.round(quantity * totalPrice * 100) / 100}
         </Text>
       </Flex>

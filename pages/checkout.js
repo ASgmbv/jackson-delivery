@@ -32,7 +32,8 @@ import Layout from "../components/Layout";
 
 const itemsSelector = (state) => state.items;
 
-const promise = loadStripe("pk_live_4oQ0np4hyAvdGF9rbAFFyLcX009WIELd7g");
+// eslint-disable-next-line no-undef
+const promise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 const DELIVERY_FEE = 10;
 const TAX_RATE = 6.05;
@@ -47,7 +48,6 @@ const Checkout = () => {
     Math.round(
       items.reduce((sum, item) => {
         const { totalPrice, quantity } = item;
-
         return sum + totalPrice * quantity;
       }, 0) * 100
     ) / 100;
@@ -69,18 +69,22 @@ const Checkout = () => {
         </Flex>
       ) : (
         <>
-          <Heading as="h2" size="xl" fontWeight="600" py="6">
+          <Heading
+            as="h2"
+            size="md"
+            fontWeight="600"
+            py="5"
+            color="green.600"
+            textTransform="uppercase"
+          >
             Cart
           </Heading>
-
-          <Divider my="6" />
+          <Divider mb="4" />
           <Stack
             spacing="8"
             divider={<StackDivider borderColor="gray.200" align="stretch" />}
           >
             {items.map((item, index) => {
-              console.dir({ item }, { depth: null });
-
               return <CheckoutItem key={index} data={item} />;
             })}
           </Stack>
@@ -124,7 +128,12 @@ const Checkout = () => {
             <Divider />
             <Flex alignItems="center" justifyContent="space-between">
               <Pricing title="Total" value={total} />
-              <Button as="a" colorScheme="orange" size="lg" onClick={onOpen}>
+              <Button
+                as="a"
+                colorScheme="orange"
+                borderRadius="0"
+                onClick={onOpen}
+              >
                 Proceed
               </Button>
             </Flex>
@@ -163,7 +172,6 @@ const Checkout = () => {
               </ModalContent>
             </ModalOverlay>
           </Modal>
-
           <Box my="100px" />
         </>
       )}
@@ -173,12 +181,10 @@ const Checkout = () => {
 
 const Pricing = ({ title, value, ...props }) => {
   return (
-    <Heading fontWeight="600" as="h2" size="md" {...props}>
+    <Text fontWeight="500" size="sm" color="gray.600" {...props}>
       {`${title}: `}
-      <Text as="span" color="#FF6901">
-        {`$${value}`}
-      </Text>
-    </Heading>
+      <Text as="span" color="black">{`$${value}`}</Text>
+    </Text>
   );
 };
 
@@ -193,18 +199,17 @@ const DeliveryRadio = (props) => {
         {...checkbox}
         cursor="pointer"
         borderWidth="1px"
-        borderRadius="md"
+        borderRadius="5px"
         boxShadow="md"
         _checked={{
-          bg: "teal.600",
+          bg: "green.600",
           color: "white",
-          borderColor: "teal.600",
         }}
         _focus={{
           boxShadow: "outline",
         }}
-        px={5}
-        py={3}
+        px={4}
+        py={2}
       >
         {props.children}
       </Box>

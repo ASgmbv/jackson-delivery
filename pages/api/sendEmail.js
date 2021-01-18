@@ -1,5 +1,7 @@
+// eslint-disable-next-line no-undef
 const sgMail = require("@sendgrid/mail");
 
+// eslint-disable-next-line no-undef
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export const sendEmail = async ({ items, data, prices }) => {
