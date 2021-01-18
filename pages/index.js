@@ -36,11 +36,16 @@ const MainPage = ({ restaurants }) => {
             Restaurants
           </Heading>
           <Stack spacing="10" mb="10">
-            {restaurants.map(
-              (
-                { name, description, image, isWorking, uid, workingHours },
-                index
-              ) => (
+            {restaurants.map((restaurant, index) => {
+              const {
+                name,
+                description,
+                image,
+                isWorking,
+                uid,
+                workingHours,
+              } = restaurant;
+              return (
                 <NextLink
                   key={"restaurant-item-" + index}
                   href={`/restaurants/${uid}`}
@@ -55,8 +60,8 @@ const MainPage = ({ restaurants }) => {
                     />
                   </a>
                 </NextLink>
-              )
-            )}
+              );
+            })}
           </Stack>
         </Box>
       </Container>

@@ -113,7 +113,6 @@ const MenuItem = ({ data }) => {
           onClose={onClose}
           size={"xl"}
           blockScrollOnMount={true}
-          isCentered
         >
           <ModalOverlay />
           <ModalContent borderRadius="0">

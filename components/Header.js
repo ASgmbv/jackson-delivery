@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   Box,
   Container,
@@ -22,7 +23,7 @@ import Bag from "../assets/icons/Bag";
 
 const itemsSelector = (state) => state.items;
 
-const Header = ({ withCart = true }) => {
+const Header = ({ restaurant, withCart = true }) => {
   const items = useCartStore(itemsSelector);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -112,7 +113,7 @@ const Header = ({ withCart = true }) => {
                     <Heading size="sm">My Cart</Heading>
                   </DrawerHeader>
                   <DrawerBody>
-                    <Cart />
+                    <Cart restaurant={restaurant} />
                   </DrawerBody>
                 </DrawerContent>
               </DrawerOverlay>

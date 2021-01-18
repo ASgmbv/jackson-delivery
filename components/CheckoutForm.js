@@ -13,10 +13,12 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
-import useCartStore from "../utils/hooks/useCartStore";
 import { useRouter } from "next/router";
+import useCartStore from "../utils/hooks/useCartStore";
+import useRestaurant from "../utils/hooks/useRestaurant";
 
 const itemsSelector = (state) => state.items;
+const restaurantSelector = (state) => state.restaurant;
 
 const CheckoutForm = ({ total, isDelivery, order, delivery, tax, tip }) => {
   const [succeeded, setSucceeded] = useState(false);
@@ -26,10 +28,11 @@ const CheckoutForm = ({ total, isDelivery, order, delivery, tax, tip }) => {
   const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
   const elements = useElements();
-  const items = useCartStore(itemsSelector);
   const { register, handleSubmit, errors } = useForm();
   const router = useRouter();
   const toast = useToast();
+  const items = useCartStore(itemsSelector);
+  const restaurant = useRestaurant(restaurantSelector);
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -80,6 +83,7 @@ const CheckoutForm = ({ total, isDelivery, order, delivery, tax, tip }) => {
         body: JSON.stringify({
           items,
           data,
+          restaurant,
           prices: {
             order,
             delivery,

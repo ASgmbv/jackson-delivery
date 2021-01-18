@@ -4,35 +4,50 @@ const sgMail = require("@sendgrid/mail");
 // eslint-disable-next-line no-undef
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-export const sendEmail = async ({ items, data, prices }) => {
+export const sendEmail = async ({ items, data, prices, restaurant }) => {
   let text = ``;
 
-  // restaurant info
+  text += `${
+    prices.delivery === 0 ? "PICK UP" : "DELIVERY"
+  } for ${restaurant.name.toUpperCase()}`;
+  text += "\n\n";
+  text += "------------ CUSTOMER INFO ------------\n";
 
-  // user data
+  // CUSTOMER
   for (const [key, value] of Object.entries(data)) {
     text += `${key}: ${value}\n`;
   }
 
-  // items
-  text += "----\n";
-  items.forEach((element) => {
+  text += "\n\n";
+
+  // ITEMS
+  let excludedFields = ["image", "description", "options", "quantity", "price"];
+  items.forEach((element, index) => {
+    text += `------------ ITEM ${index + 1} ------------\n`;
     for (const [key, value] of Object.entries(element)) {
-      if (key !== "image" && key !== "type" && key !== "totalPrice") {
-        text += `${key}: ${value}\n`;
+      if (!excludedFields.includes(key)) {
+        if (key === "title") {
+          text += `${element.quantity} X ${value.toUpperCase()}\n`;
+        } else if (key === "totalPrice") {
+          text += `price: $${value}\n`;
+        } else {
+          text += `${key.toLowerCase()}: ${value}\n`;
+        }
       }
     }
-    text += "----\n";
+    text += "\n\n";
   });
 
-  // pricing
+  text += "----------------------------\n";
+
+  // PRICING
   for (const [key, value] of Object.entries(prices)) {
-    text += `${key}: $ ${value}\n`;
+    text += `${key.toUpperCase()}: $${value}\n`;
   }
 
   let res = await sgMail.send({
-    // to: "tianguberabdurahman@gmail.com", // "tianguberabdurahman@gmail.com
-    to: "tianguberabdurahman@gmail.com",
+    to: ["alimbeksagymbaev@gmail.com", restaurant.email],
+    // to: ["tianguberabdurahman@gmail.com", restaurant.email],
     from: "jacksononlineorder@gmail.com",
     subject: "New Jackson Online Delivery Order",
     text,
@@ -42,7 +57,7 @@ export const sendEmail = async ({ items, data, prices }) => {
 };
 
 export default async (req, res) => {
-  const { items, data, prices } = req.body;
+  const { items, data, prices, restaurant } = req.body;
 
   if (req.method === "POST") {
     try {
@@ -50,6 +65,7 @@ export default async (req, res) => {
         items,
         data,
         prices,
+        restaurant,
       });
       res.status(200).json({
         status: "success",

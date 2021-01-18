@@ -10,11 +10,11 @@ const Banner = ({ restaurant = {} }) => {
       mt={["3rem", null, "4rem"]}
       w="full"
       backgroundColor="rgba(0, 0, 0, 0.5)"
-      backgroundImage="url('/bg.jpg')"
+      backgroundImage={`url(${restaurant.image})`}
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
-      height={["130px", null, "200px"]}
+      height={["300px"]}
       position="relative"
     >
       <Flex
@@ -35,7 +35,7 @@ const Banner = ({ restaurant = {} }) => {
       >
         <Container maxW="7xl">
           <Heading
-            fontSize={["2xl", null, "5xl"]}
+            fontSize={["2xl", null, "4xl"]}
             textAlign={["start"]}
             w="100%"
             as="h1"

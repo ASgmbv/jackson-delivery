@@ -15,7 +15,7 @@ export default function Home({ menu, restaurant }) {
   return (
     <>
       <SEO title="JH Online Orders" />
-      <Header />
+      <Header restaurant={restaurant} />
       <Banner restaurant={restaurant} />
       <Menu menu={menu} />
     </>

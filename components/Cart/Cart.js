@@ -1,14 +1,18 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
 import { Button, Text, Flex, Stack, StackDivider } from "@chakra-ui/react";
-import useCartStore from "../../utils/hooks/useCartStore";
 import CartItem from "./CartItem";
 import Link from "next/link";
 import { SearchIcon } from "@chakra-ui/icons";
+import useCartStore from "../../utils/hooks/useCartStore";
+import useRestaurant from "../../utils/hooks/useRestaurant";
 
 const itemsSelector = (state) => state.items;
+const setRestaurantSelector = (state) => state.setRestaurant;
 
-const Cart = () => {
+const Cart = ({ restaurant }) => {
   const items = useCartStore(itemsSelector);
+  const setRestaurant = useRestaurant(setRestaurantSelector);
 
   const temp = items.reduce((sum, item) => {
     const { quantity, totalPrice } = item;
@@ -38,6 +42,9 @@ const Cart = () => {
             size="sm"
             borderRadius="0"
             variant="outline"
+            onClick={() => {
+              setRestaurant(restaurant ? { ...restaurant } : {});
+            }}
           >
             To checkout
           </Button>

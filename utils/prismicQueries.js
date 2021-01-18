@@ -17,6 +17,7 @@ export async function fetchRestaurants() {
       description: restaurant.data.description,
       image: restaurant.data.image?.url,
       workingHours: restaurant.data.working_hours,
+      email: restaurant.data.email,
     };
   });
 
@@ -32,6 +33,7 @@ export async function fetchRestaurantByUid({ restaurantUid }) {
     description: restaurant.data.description,
     image: restaurant.data.image.url,
     workingHours: restaurant.data.working_hours,
+    email: restaurant.data.email,
   };
 }
 

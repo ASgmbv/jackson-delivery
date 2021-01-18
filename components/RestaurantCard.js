@@ -2,13 +2,7 @@
 import React from "react";
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 
-const RestaurantCard = ({
-  image,
-  name,
-  isWorking,
-  description,
-  workingHours,
-}) => {
+const RestaurantCard = ({ image, name, workingHours }) => {
   return (
     <Box
       backgroundImage={`url(${image})`}
