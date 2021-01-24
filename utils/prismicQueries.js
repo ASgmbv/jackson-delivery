@@ -18,6 +18,7 @@ export async function fetchRestaurants() {
       image: restaurant.data.image?.url,
       workingHours: restaurant.data.working_hours,
       email: restaurant.data.email,
+      menuUrl: restaurant.data.menu_link || null,
     };
   });
 
@@ -34,6 +35,7 @@ export async function fetchRestaurantByUid({ restaurantUid }) {
     image: restaurant.data.image.url,
     workingHours: restaurant.data.working_hours,
     email: restaurant.data.email,
+    menuUrl: restaurant.data.menu_link || null,
   };
 }
 
@@ -95,7 +97,7 @@ export async function fetchProductsByRestaurant({ restaurantId }) {
       return product;
     });
 
-    console.dir("page: " + response.page, { depth: null });
+    // console.dir("page: " + response.page, { depth: null });
 
     page++;
   } while (response.next_page);

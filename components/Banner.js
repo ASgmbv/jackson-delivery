@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/react-in-jsx-scope */
-import { Flex, Text, Heading, Container } from "@chakra-ui/react";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { Flex, Text, Heading, Container, Link } from "@chakra-ui/react";
 
 const Banner = ({ restaurant = {} }) => {
-  const { name, workingHours, description } = restaurant;
+  const { name, workingHours, description, menuUrl } = restaurant;
 
   return (
     <Flex
@@ -61,9 +62,20 @@ const Banner = ({ restaurant = {} }) => {
             fontWeight="bold"
             fontSize={["xs", null, "sm"]}
             lineHeight="tall"
+            mb="4"
           >
             {workingHours || ""}
           </Text>
+          <Link
+            textAlign={["start"]}
+            color="white"
+            fontWeight="bold"
+            lineHeight="tall"
+            href={menuUrl}
+            isExternal
+          >
+            Restaurant Menu <ExternalLinkIcon />
+          </Link>
         </Container>
       </Flex>
     </Flex>

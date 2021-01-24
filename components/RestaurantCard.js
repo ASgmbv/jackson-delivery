@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Img, Text } from "@chakra-ui/react";
 
 const RestaurantCard = ({ image, name, workingHours }) => {
   return (
